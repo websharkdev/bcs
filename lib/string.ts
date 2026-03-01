@@ -1,0 +1,1 @@
+export const removeSpacings = (value: string) => value.replace(' ', '-')

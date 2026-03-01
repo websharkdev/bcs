@@ -1,0 +1,52 @@
+import { MAboutUs, MB2B, MBenefits, MContactUs, MFAQ, MHome, MReviews, MServices } from "./(components)";
+
+
+
+
+export default function Home() {
+
+    const sections = [
+        {
+            id: 'home',
+            component: <MHome />
+        },
+        {
+            id: 'services',
+            component: <MServices />
+        },
+        {
+            id: 'benefits',
+            component: <MBenefits />
+        },
+        {
+            id: 'reviews',
+            component: <MReviews />
+        },
+        {
+            id: 'b2b',
+            component: <MB2B />
+        },
+        {
+            id: 'about-us',
+            component: <MAboutUs />
+        },
+        {
+            id: 'faq',
+            component: <MFAQ />
+        },
+        {
+            id: 'contact-us',
+            component: <MContactUs />
+        }
+    ]
+
+  return (
+    <div className="flex flex-col gap-20 px-20">
+        {sections.map((section) => (
+            <section key={section.id} id={section.id}>
+                {section.component}
+            </section>
+        ))}
+    </div>
+  );
+}

@@ -1,0 +1,162 @@
+{
+  "HeaderMenu": {
+    "home": "Home",
+    "services": "Services",
+    "reviews": "Reviews",
+    "b2b": "B2B",
+    "about_us": "About Us",
+    "contact_us": "Contact Us"
+  },
+  "buttons": {
+    "plan_a_route": "Plan a route",
+    "call_us": "Call Us",
+    "call_on_whatsapp": "Call on WhatsApp",
+    "book_an_appointment": "Book an appointment"
+  },
+  "home": {
+    "title": "Reliable Car Repair\nin Duffel, Belgium",
+    "subtitle": "Trusted auto repair since 2024 — honest diagnostics, reliable service, and a team that respects your time.",
+    "clients": "Clients"
+  },
+  "services": {
+    "title": "Services we provide",
+    "subtitle": "Professional automotive solutions delivered with precision, reliability, and attention to every detail.",
+    "cards": {
+        "maintenance": {
+            "title": "Minor & Major Maintenance",
+            "description": "Comprehensive routine servicing including oil changes, filters, fluids, and full inspections to ensure long-term reliability and performance."
+        },
+        "brakes": {
+            "title": "Brake Replacement Service",
+            "description": "Thorough brake system inspection and professional replacement of pads and discs for maximum safety and smooth braking."
+        },
+        "dpf": {
+            "title": "DPF Cleaning & Replacement",
+            "description": "Advanced DPF diagnostics, cleaning, and replacement to restore engine efficiency and maintain proper emission standards."
+        },
+        "electrical_repairs": {
+            "title": "Auto Electrical Repairs",
+            "description": "Precise diagnostics and repair of wiring, sensors, batteries, starters, and complex onboard electronic systems."
+        }
+    },
+    "load_more": "Load more services"
+  },
+  "benefits": {
+    "title": "Why belgian car service stands out",
+    "subtitle": "Honest service, skilled technicians, and a customer-first approach that sets us apart.",
+    "cards": {
+        "pricing": {
+            "title": "Competitive Pricing",
+            "description": "Transparent pricing with no hidden fees or unnecessary services."
+        },
+        "quality": {
+            "title": "Quality Workmanship",
+            "description": "We follow standards and use proven, reliable parts."
+        },
+        "fast": {
+            "title": "Fast Service",
+            "description": "Efficient processes ensure faster-than-average repair times."
+        },
+        "vehicle": {
+            "title": "5 Vehicle Lifts Available",
+            "description": "Equipped with several lifts, including one heavy-duty, for cars and commercial vans."
+        },
+        "honest": {
+            "title": "Honest Approach",
+            "description": "No upselling, no inflated work, only what your vehicle truly needs."
+        },
+        "experience": {
+            "title": "Experienced Team",
+            "description": "8 skilled specialists with strong hands-on mechanical expertise."
+        }
+    }
+  },
+  "reviews": {
+    "title": "What our clients say",
+    "subtitle": "Honest feedback from real customers about their experience with our service.",
+    "slides": {
+        "mason": {
+            "title": "Clear communication, fair pricing, and no unnecessary repairs. Everything was explained before the work started.",
+            "name": "Mikhail M.",
+            "car": "Volkswagen Golf GTI MK5 Owner"
+        },
+        "viktor": {
+            "title": "Quick diagnostics and efficient repair. My car was ready earlier than expected.",
+            "name": "Viktor O.",
+            "car": "BMW 330i Owner"
+        },
+        "marphisa": {
+            "title": "Great experience from booking to pickup. Smooth process and excellent results.",
+            "name": "Marphisa D.",
+            "car": "Fiat Ibiza Owner"
+        },
+        "arnou": {
+            "title": "Fast response and professional communication. I felt confident leaving my car with them.",
+            "name": "Arnou L.",
+            "car": "Audi A3 Owner"
+        },
+        "anton": {
+            "title": "Reliable work and attention to detail. The car feels perfect after the service.",
+            "name": "Anton R.",
+            "car": "Volkswagen Golf GTI Owner"
+        }
+    }
+  },
+  "b2b": {
+    "title": "We offer B2B Fleet Service Solutions",
+    "description": "If your company operates its own vehicles, downtime is not just inconvenient - it directly impacts revenue. We provide structured, priority-based fleet servicing designed to minimize disruptions and keep your operations running smoothly.",
+    "cards": {
+        "rates": {
+            "title": "Competitive Corporate Rates",
+            "description": "Transparent pricing and flexible terms based on fleet size."
+        },
+        "schedule": {
+            "title": "Priority Service And Fast Scheduling",
+            "description": "Reduced waiting times and fast handling of urgent issues."
+        },
+        "rapid": {
+            "title": "Rapid Diagnostics And Repairs",
+            "description": "Efficient workflows ensure quick turnaround and minimal downtime."
+        },
+        "aggrements": {
+            "title": "Customized Service Agreements",
+            "description": "Service plans tailored to your business needs."
+        }
+
+    }
+  },
+  "about_us": {
+    "title": "Our Work in Action",
+    "description": "A closer look at our workshop, equipment, and the quality behind every repair we deliver."
+  },
+  "faq": {
+    "title": "Popular Questions",
+    "description": "Clear answers about our services, pricing, booking, and what to expect during your visit. Didn’t find what you’re looking for? Conctact us directly.",
+    "questions": {
+        "appointment": {
+            "title": "How can I book an appointment?",
+            "description": "You can book by phone, message, or through our website. We’ll confirm availability and schedule a convenient time."
+        },
+        "diagnostics": {
+            "title": "Do you provide diagnostics before repairs?",
+            "description": "You can book by phone, message, or through our website. We’ll confirm availability and schedule a convenient time."
+        },
+        "prices": {
+            "title": "Are your prices fixed?",
+            "description": "You can book by phone, message, or through our website. We’ll confirm availability and schedule a convenient time."
+        },
+        "time": {
+            "title": "How long does a typical service take?",
+            "description": "You can book by phone, message, or through our website. We’ll confirm availability and schedule a convenient time."
+        },
+        "brands": {
+            "title": "Do you service all car brands?",
+            "description": "You can book by phone, message, or through our website. We’ll confirm availability and schedule a convenient time."
+        },
+        "companies": {
+            "title": "Do you offer fleet servicing for companies?",
+            "description": "You can book by phone, message, or through our website. We’ll confirm availability and schedule a convenient time."
+        }
+    }
+  }
+}
