@@ -40,13 +40,13 @@ const GFooter = () => {
 
 
     return (
-        <footer className="w-full bg-[#050505] flex flex-col justify-between relative h-max px-5 md:px-20 py-10">
-            <div className="flex flex-col md:flex-row justify-between border-b border-[#171717] pb-10 gap-10">
+        <footer className="w-full bg-[#050505] flex flex-col justify-between relative h-max px-5 lg:px-20 py-10">
+            <div className="flex flex-col lg:flex-row justify-between border-b border-[#171717] pb-10 gap-10">
                 <div className="flex flex-col gap-y-5">
                     <GLogo className="w-full max-w-[137px] aspect-137/48 text-white" />
                     <span className="caption text-[#a9a9a9]">{t('copyright')}</span>
                 </div>
-                <div className="static z-1 flex flex-wrap md:flex-nowrap gap-5 md:gap-15 w-full md:w-max">
+                <div className="static z-1 flex flex-wrap lg:flex-nowrap gap-5 lg:gap-15 w-full lg:w-max">
                     <FooterSection title={t('navigation')} items={navigationItems} />
                     <FooterSection title={tservices_form('title')} items={serviceItems} />
                     <FooterSection title={tlegal('title')} items={legalItems} />
@@ -56,7 +56,7 @@ const GFooter = () => {
                 </div>
             </div>
             <div className="flex justify-center items-end mt-10">
-                <GTextLogo className="w-full md:w-[calc(100%-220px)] aspect-1280/150" />
+                <GTextLogo className="w-full lg:w-[calc(100%-220px)] aspect-1280/150" />
             </div>
         </footer>
     );

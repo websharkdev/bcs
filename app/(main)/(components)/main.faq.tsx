@@ -55,7 +55,7 @@ const MFAQ = () => {
             </div>
 
 
-            <Accordion type="single" collapsible className="grid grid-cols-1 md:grid-cols-2 w-full gap-x-10 gap-y-0 items-start max-w-7xl">
+            <Accordion type="single" collapsible className="grid grid-cols-1 lg:grid-cols-2 w-full gap-x-10 gap-y-0 items-start max-w-7xl">
                 <div className="flex flex-col gap-5 items-start">
                     {leftColumn.map((question, index) => (
                         <FAQQuestion key={`faq-left-${index}`} question={question} />

@@ -39,7 +39,7 @@ export const GHeaderBurger = () => {
                     <Menu />
                 </Button>
             </DialogTrigger>
-            <DialogContent className="h-screen max-w-full rounded-none border-none p-0 flex flex-col">
+            <DialogContent className="min-h-screen max-w-full! rounded-none border-none p-0 flex flex-col">
                 <DialogTitle className="sr-only">Menu</DialogTitle>
                 
                 <div className="flex justify-center items-center h-20 shrink-0">
@@ -65,7 +65,7 @@ export const GHeaderBurger = () => {
                 </nav>
 
                 {/* Footer Area */}
-                <div className="p-6 flex flex-col gap-4 mt-auto">
+                <div className="p-6 flex flex-col gap-4 mt-auto flex-1">
                     <div className="w-full">
                         <GHeaderLanguage />
                     </div>

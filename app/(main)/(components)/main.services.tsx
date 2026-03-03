@@ -43,7 +43,7 @@ const MServicesCard = ({title, description, image, serviceType}: {title: string,
                 width={600} 
                 height={400} 
                 className="hover:mix-blend-luminosity transition-all duration-500 w-full h-auto" 
-                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 600px"
+                sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 50vw, 600px"
             />
         </CardContent>
     </Card>
@@ -91,14 +91,14 @@ const MServices = () => {
             <p>{tservices('subtitle')}</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-7xl mx-auto">
             {servicesData.map((service) => (
                 <MServicesCard key={service.title} {...service} />
             ))}
         </div>
 
         <div className="flex justify-center items-center">
-            <Button className="w-full md:w-auto" onClick={() => useModalsStore.getState().setOpen(true)}>{tservices('load_more')}</Button>
+            <Button className="w-full lg:w-auto" onClick={() => useModalsStore.getState().setOpen(true)}>{tservices('load_more')}</Button>
         </div>
     </div>
   )

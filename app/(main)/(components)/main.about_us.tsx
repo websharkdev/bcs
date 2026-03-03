@@ -10,7 +10,7 @@ import Carousel from "@/components/ui/carousel"
 const MAboutUs = () => {
     const { ref } = useSectionScroll('about-us')
     const tabout = useTranslations('about_us')
-    const isMobile = useMediaQuery('(max-width: 768px)')
+    const isMobile = useMediaQuery('(max-width: 1024px)')
 
     const galery: string[] = [
         '/galery/Item.webp',
@@ -44,7 +44,7 @@ const MAboutUs = () => {
                                         alt={`main-about_us-galery--${galeryItem}/image`} 
                                         width={305} 
                                         height={400} 
-                                        sizes="(max-width: 768px) 100vw, 305px"
+                                        sizes="(max-width: 1024px) 100vw, 305px"
                                     />
                                 </Lens>
                             </div>
@@ -60,7 +60,7 @@ const MAboutUs = () => {
                                     alt={`main-about_us-galery--${galeryItem}/image`} 
                                     width={305} 
                                     height={400} 
-                                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 305px"
+                                    sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 50vw, 305px"
                                 />
                             </Lens>
                         )}

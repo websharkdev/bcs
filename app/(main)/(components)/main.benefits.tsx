@@ -24,7 +24,7 @@ const MBenefitsCard = ({title, description, icon}: {title: string, description: 
     <Card className="border-0 shadow-none p-0">
         <CardHeader className="p-0 justify-center items-center gap-2.5">
             <CardTitle className="title text-[#171717] text-center">{title}</CardTitle>
-            <CardDescription className="button text-[#A9A9A9] font-medium text-center max-w-[300px] md:max-w-96">{description}</CardDescription>
+            <CardDescription className="button text-[#A9A9A9] font-medium text-center max-w-[300px] lg:max-w-96">{description}</CardDescription>
         </CardHeader>
         <CardContent className="-order-10 p-0">
             <div className="flex justify-center items-center w-max mx-auto p-4 text-[#2191FF] border-2 border-[#EBEBEB] rounded-xl">
@@ -80,7 +80,7 @@ const MBenefits = () => {
             <p className="button font-medium max-w-md mx-auto">{tbenefits('subtitle')}</p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-10 w-full max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-10 w-full max-w-7xl mx-auto">
             {benefitsData.map((benefit, index) => (
                 <MBenefitsCard key={index} {...benefit} />
             ))}

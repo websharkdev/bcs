@@ -86,7 +86,7 @@ export const ContactForm = ({ defaultService, className }: { defaultService?: Se
                                         value={field.value}
                                         onValueChange={field.onChange}
                                         aria-invalid={fieldState.invalid}
-                                        className="grid md:grid-cols-2 gap-4.5 p-0"
+                                        className="grid lg:grid-cols-2 gap-4.5 p-0"
                                     >
                                         {services.map((service) => (
                                             <FieldLabel
@@ -208,9 +208,9 @@ const GContactUs = ({type, className, formClassName = 'h-[500px]'}: {type: Servi
 
     return (
         <div className={cn("min-h-screen flex justify-center items-center my-20", className)} ref={ref} id="contact-us">
-            <div className="relative max-w-full md:max-w-7xl w-full h-full rounded-[24px] overflow-hidden">
-                <div className="relative z-10 flex flex-nowrap flex-col md:flex-row items-center justify-between w-full h-full pl-5 md:pl-16 pr-5 pb-5 md:pb-0">
-                    <div className="flex flex-col justify-between text-white! max-w-[480px] md:min-h-[700px] my-10 md:my-12 gap-10">
+            <div className="relative max-w-full lg:max-w-7xl w-full h-full rounded-[24px] overflow-hidden">
+                <div className="relative z-10 flex flex-nowrap flex-col lg:flex-row items-center justify-between w-full h-full pl-5 lg:pl-16 pr-5 pb-5 lg:pb-0">
+                    <div className="flex flex-col justify-between text-white! max-w-[480px] lg:min-h-[700px] my-10 lg:my-12 gap-10">
                         <div className="flex flex-nowrap flex-col gap-4">
                             <h3>{tcontact('title')}</h3>
                             <p className="button font-medium">{tcontact('description')}</p>

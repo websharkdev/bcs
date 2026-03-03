@@ -12,9 +12,9 @@ const MReviewSlide = ({ slide, image, stars }: { slide: string, image: string, s
     const tslide = useTranslations(`reviews.slides.${slide}`)
 
     return (
-        <div className="bg-[#f5f5f5] rounded-[24px] p-6 md:p-10 min-h-[500px] md:min-h-[600px] flex flex-col justify-center items-center gap-5 max-w-7xl mx-auto">
+        <div className="bg-[#f5f5f5] rounded-[24px] p-6 lg:p-10 min-h-[500px] lg:min-h-[600px] flex flex-col justify-center items-center gap-5 max-w-7xl mx-auto">
             <GStars maxRating={5} rating={stars} />
-            <h3 className="max-w-3xl text-center mb-6 md:mb-10">{tslide('title')}</h3>
+            <h3 className="max-w-3xl text-center mb-6 lg:mb-10">{tslide('title')}</h3>
 
 
             <div className="flex flex-col items-center justify-center">
@@ -24,8 +24,8 @@ const MReviewSlide = ({ slide, image, stars }: { slide: string, image: string, s
                         {tslide('name').split(' ').map((word) => word[0]).join('')}
                     </AvatarFallback>
                 </Avatar>
-                <span className="font-bold text-lg md:text-xl text-[#171717] text-center">{tslide('name')}</span>
-                <span className="text-sm md:text-base font-medium text-[#a9a9a9] text-center">{tslide('car')}</span>
+                <span className="font-bold text-lg lg:text-xl text-[#171717] text-center">{tslide('name')}</span>
+                <span className="text-sm lg:text-base font-medium text-[#a9a9a9] text-center">{tslide('car')}</span>
             </div>
 
         </div>

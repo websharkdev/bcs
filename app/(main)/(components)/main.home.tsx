@@ -49,7 +49,7 @@ const MHome = () => {
     const tbuttons = useTranslations('buttons')
 
   return (
-    <div className="flex items-center justify-center relative min-h-[600px] md:min-h-[800px] py-10 md:py-0 my-10 max-w-7xl mx-auto" ref={ref} id="home">
+    <div className="flex items-center justify-center relative min-h-[600px] lg:min-h-[800px] py-10 lg:py-0 my-10 max-w-7xl mx-auto" ref={ref} id="home">
         <div className="w-full h-full object-fill absolute left-0 top-0 z-5 bg-black/40 backdrop-blur-sm rounded-[24px]"/>
         <Image 
             src="/backgrounds/home.jpg" 
@@ -57,26 +57,26 @@ const MHome = () => {
             fill 
             priority 
             className="absolute inset-0 z-0 rounded-[24px] object-cover pointer-events-none" 
-            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 1280px, 1920px"
+            sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 1280px, 1920px"
         />
         <div className="flex flex-col items-center justify-center z-10 text-white max-w-3xl gap-6 px-4">
             <div className="flex flex-row items-center gap-5">
                 <MHomeUser/>
-                <div className="flex flex-col items-center md:items-start gap-0.5">
+                <div className="flex flex-col items-center lg:items-start gap-0.5">
                     <GStars maxRating={5} rating={5} />
                     <span className="flex flex-nowrap text font-medium"><NumberTicker value={500} startValue={200}/>+ {thome('clients')}</span>
                 </div>
             </div>
-            <h1 className="text-center md:whitespace-pre">{thome('title')}</h1>
+            <h1 className="text-center lg:whitespace-pre">{thome('title')}</h1>
             <p className="text-center max-w-[560px]">{thome('subtitle')}</p>
 
-            <div className="flex flex-col md:flex-row items-center gap-2.5 md:gap-4 px-8 w-full md:w-auto">
-                <Button variant='default' className="w-full md:w-auto bg-[#2791FF] border-2 border-[#2791FF]">{tbuttons('plan_a_route')}</Button>
-                <Button variant='whatsup_o' className="w-full md:w-auto">
+            <div className="flex flex-col lg:flex-row items-center gap-2.5 lg:gap-4 px-8 w-full lg:w-auto">
+                <Button variant='default' className="w-full lg:w-auto bg-[#2791FF] border-2 border-[#2791FF]">{tbuttons('plan_a_route')}</Button>
+                <Button variant='whatsup_o' className="w-full lg:w-auto">
                     <WhatsAppIcon className="size-6" />
                     {tbuttons('call_on_whatsapp')}
                 </Button>
-                <Button variant='secondary' className="w-full md:w-auto" onClick={() => useModalsStore.getState().setOpen(true)}>{tbuttons('book_an_appointment')}</Button>
+                <Button variant='secondary' className="w-full lg:w-auto" onClick={() => useModalsStore.getState().setOpen(true)}>{tbuttons('book_an_appointment')}</Button>
             </div>
         </div>
     </div>
