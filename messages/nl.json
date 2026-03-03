@@ -1,0 +1,361 @@
+{
+  "menu": {
+    "home": "Home",
+    "services": "Diensten",
+    "reviews": "Beoordelingen",
+    "b2b": "B2B",
+    "about_us": "Over ons",
+    "contact_us": "Contact"
+  },
+  "services_form": {
+    "title": "Diensten",
+    "maintenance": "Klein & Groot Onderhoud",
+    "brakes": "Remmen Vervangen",
+    "dpf": "DPF Reiniging & Vervanging",
+    "electrical_repairs": "Auto Elektrische Reparaties",
+    "vehicle": "Volledige Voertuigdiagnose",
+    "tire": "Bandenservice & Montage",
+    "other": "Overig"
+  },
+  "footer": {
+    "copyright": "© 2025 Alle rechten voorbehouden",
+    "navigation": "Navigatie",
+    "legal": {
+      "title": "Juridisch",
+      "privacy_policy": "Privacybeleid",
+      "website_terms": "Websitevoorwaarden"
+    },
+    "contact": "Contact",
+    "phone": "+32 490 60 94 63",
+    "address": "Hermansstraat 35, 2570 Duffel, België",
+    "email": "belgiancarservices@gmail.com",
+    "google_maps_link": "https://www.google.com/maps/dir/?api=1&destination=Hermansstraat+35,+2570+Duffel,+Belgium"
+  },
+  "buttons": {
+    "plan_a_route": "Route plannen",
+    "call_us": "Bel ons",
+    "call_on_whatsapp": "Bel via WhatsApp",
+    "book_an_appointment": "Maak een afspraak"
+  },
+  "home": {
+    "title": "Betrouwbare autoreparatie\nin Duffel, België",
+    "subtitle": "Vertrouwd sinds 2024 — eerlijke diagnose, betrouwbare service en een team dat uw tijd respecteert.",
+    "clients": "Klanten"
+  },
+  "services": {
+    "title": "Onze diensten",
+    "subtitle": "Professionele oplossingen geleverd met precisie, betrouwbaarheid en aandacht voor elk detail.",
+    "cards": {
+      "maintenance": {
+        "title": "Klein & Groot Onderhoud",
+        "description": "Uitgebreid routineonderhoud inclusief olieverversing, filters, vloeistoffen en volledige inspecties voor langdurige betrouwbaarheid."
+      },
+      "brakes": {
+        "title": "Remmenservice",
+        "description": "Grondige inspectie van het remsysteem en professionele vervanging van blokken en schijven voor maximale veiligheid."
+      },
+      "dpf": {
+        "title": "DPF Reiniging & Vervanging",
+        "description": "Geavanceerde DPF-diagnose, reiniging en vervanging om motor-efficiëntie te herstellen en emissienormen te behouden."
+      },
+      "electrical_repairs": {
+        "title": "Auto Elektrische Reparaties",
+        "description": "Precieze diagnose en reparatie van bedrading, sensoren, accu's, starters en complexe boordsystemen."
+      }
+    },
+    "load_more": "Meer diensten"
+  },
+  "benefits": {
+    "title": "Waarom Belgian Car Service opvalt",
+    "subtitle": "Eerlijke service, bekwame technici en een klantgerichte aanpak.",
+    "cards": {
+      "pricing": {
+        "title": "Scherpe Prijzen",
+        "description": "Transparante prijzen zonder verborgen kosten of onnodige diensten."
+      },
+      "quality": {
+        "title": "Kwaliteitswerk",
+        "description": "Wij volgen standaarden en gebruiken bewezen, betrouwbare onderdelen."
+      },
+      "fast": {
+        "title": "Snelle Service",
+        "description": "Efficiënte processen zorgen voor snellere reparatietijden dan gemiddeld."
+      },
+      "vehicle": {
+        "title": "5 Hefbruggen Beschikbaar",
+        "description": "Uitgerust met meerdere bruggen, inclusief één voor zwaar gebruik, voor auto's en bestelwagens."
+      },
+      "honest": {
+        "title": "Eerlijke Aanpak",
+        "description": "Geen upselling, geen opgeblazen werk, alleen wat uw auto echt nodig heeft."
+      },
+      "experience": {
+        "title": "Ervaren Team",
+        "description": "8 bekwame specialisten met sterke praktische mechanische expertise."
+      }
+    }
+  },
+  "reviews": {
+    "title": "Wat onze klanten zeggen",
+    "subtitle": "Eerlijke feedback van echte klanten over hun ervaring met onze service.",
+    "slides": {
+      "mason": {
+        "title": "Duidelijke communicatie, eerlijke prijzen en geen onnodige reparaties. Alles werd uitgelegd voor de start.",
+        "name": "Mikhail M.",
+        "car": "Volkswagen Golf GTI MK5 Eigenaar"
+      },
+      "viktor": {
+        "title": "Snelle diagnose en efficiënte reparatie. Mijn auto was eerder klaar dan verwacht.",
+        "name": "Viktor O.",
+        "car": "BMW 330i Eigenaar"
+      },
+      "marphisa": {
+        "title": "Geweldige ervaring van boeking tot afhaling. Soepel proces en uitstekende resultaten.",
+        "name": "Marphisa D.",
+        "car": "Fiat Ibiza Eigenaar"
+      },
+      "arnou": {
+        "title": "Snelle reactie en professionele communicatie. Ik had vertrouwen om mijn auto bij hen achter te laten.",
+        "name": "Arnou L.",
+        "car": "Audi A3 Eigenaar"
+      },
+      "anton": {
+        "title": "Betrouwbaar werk en aandacht voor detail. De auto voelt perfect aan na de service.",
+        "name": "Anton R.",
+        "car": "Volkswagen Golf GTI Eigenaar"
+      }
+    }
+  },
+  "b2b": {
+    "title": "Wij bieden B2B Fleetoplossingen",
+    "description": "Als uw bedrijf eigen voertuigen beheert, is stilstand niet alleen lastig - het heeft direct invloed op de omzet. Wij bieden gestructureerd vlootonderhoud.",
+    "cards": {
+      "rates": {
+        "title": "Scherpe Zakelijke Tarieven",
+        "description": "Transparante prijzen en flexibele voorwaarden op basis van de vlootgrootte."
+      },
+      "schedule": {
+        "title": "Prioriteitsservice & Snelle Planning",
+        "description": "Kortere wachttijden en snelle afhandeling van dringende zaken."
+      },
+      "rapid": {
+        "title": "Snelle Diagnose & Reparaties",
+        "description": "Efficiënte workflows zorgen voor een snelle doorlooptijd en minimale stilstand."
+      },
+      "aggrements": {
+        "title": "Aangepaste Serviceovereenkomsten",
+        "description": "Serviceplannen op maat van uw bedrijfsbehoeften."
+      }
+    }
+  },
+  "about_us": {
+    "title": "Ons werk in actie",
+    "description": "Een kijkje in onze werkplaats, apparatuur en de kwaliteit achter elke reparatie."
+  },
+  "faq": {
+    "title": "Veelgestelde vragen",
+    "description": "Duidelijke antwoorden over onze diensten, prijzen en boeking. Niet gevonden wat u zoekt? Neem direct contact op.",
+    "questions": {
+      "appointment": {
+        "title": "Hoe kan ik een afspraak maken?",
+        "description": "U kunt boeken via telefoon, bericht of onze website. We bevestigen de beschikbaarheid en plannen een handig tijdstip."
+      },
+      "diagnostics": {
+        "title": "Bieden jullie diagnose voor reparatie?",
+        "description": "Ja, we starten altijd met een diagnose om de exacte oorzaak te vinden en onnodige kosten te vermijden."
+      },
+      "prices": {
+        "title": "Zijn uw prijzen vast?",
+        "description": "We geven een nauwkeurige schatting na de diagnose, zodat de prijs eerlijk en transparant blijft."
+      },
+      "time": {
+        "title": "Hoe lang duurt een typische onderhoudsbeurt?",
+        "description": "Dit hangt af van het werk: van een uur voor klein onderhoud tot enkele dagen voor complexe reparaties."
+      },
+      "brands": {
+        "title": "Onderhouden jullie alle automerken?",
+        "description": "Ja, we werken aan de meeste Europese en Aziatische merken van personenauto's en bestelwagens."
+      },
+      "companies": {
+        "title": "Bieden jullie vlootonderhoud voor bedrijven?",
+        "description": "Ja, we bieden speciale voorwaarden en prioriteit voor bedrijven en zelfstandigen."
+      }
+    }
+  },
+  "contact_us": {
+    "title": "Boek uw service",
+    "description": "Boek uw bezoek in enkele stappen: kies een dienst en we bevestigen snel. Of contacteer ons via WhatsApp.",
+    "form": {
+      "title": "Kies dienst",
+      "name": "Uw volledige naam",
+      "phone": "Uw telefoonnummer",
+      "email": "Uw e-mailadres",
+      "vin_code": "VIN-code",
+      "min_vin_code": "Min. 17 tekens",
+      "max_vin_code": "Max. 17 tekens",
+      "min_full_name": "Min. 3 tekens",
+      "max_full_name": "Max. 100 tekens",
+      "min_phone": "Min. 10 tekens",
+      "max_phone": "Max. 15 tekens",
+      "min_email": "Min. 5 tekens",
+      "max_email": "Max. 100 tekens",
+      "invalid_email": "Ongeldig e-mailadres"
+    }
+  },
+  "privacy_policy": {
+    "title": "Privacybeleid",
+    "description": "Uw gegevens worden behandeld met transparantie, beveiliging en volledige naleving van Europese normen.",
+    "sections": {
+      "1": {
+        "title": "1. Inleiding",
+        "description": "Bij Belgian Car Service respecteren we uw privacy. Dit beleid legt uit welke informatie we verzamelen en hoe we deze beschermen volgens de AVG."
+      },
+      "2": {
+        "title": "2. Verzamelde Informatie",
+        "description": "Wanneer u onze website gebruikt of een dienst boekt, kunnen we verzamelen:",
+        "subsections": {
+          "1": {
+            "title": "Gegevens via formulieren:",
+            "list": [
+              "Volledige naam",
+              "Telefoonnummer",
+              "E-mailadres",
+              "Voertuiginformatie (Merk, Model, VIN)",
+              "Geselecteerde dienst"
+            ]
+          },
+          "2": {
+            "title": "Automatisch verzamelde gegevens:",
+            "list": [
+              "IP-adres",
+              "Browserinformatie",
+              "Cookies"
+            ]
+          }
+        }
+      },
+      "3": {
+        "title": "3. Doel van de gegevens",
+        "subsections": {
+          "1": {
+            "title": "Wij gebruiken uw gegevens om:",
+            "list": [
+              "Afspraken te plannen en bevestigen",
+              "Contact met u op te nemen over uw voertuig",
+              "Diagnoses voor te bereiden op basis van VIN",
+              "Facturen op te stellen en boekhouding bij te houden"
+            ]
+          }
+        },
+        "end_description": "Wij verkopen of verhuren uw persoonlijke informatie niet."
+      },
+      "4": {
+        "title": "4. Rechtsgrondslag",
+        "subsections": {
+          "1": {
+            "title": "Wij verwerken uw gegevens op basis van:",
+            "list": [
+              "Uitvoering van contract (boeking en reparaties)",
+              "Wettelijke verplichtingen (boekhouding)",
+              "Uw toestemming"
+            ]
+          }
+        }
+      },
+      "5": {
+        "title": "5. Gegevensbewaring",
+        "subsections": {
+          "1": {
+            "title": "Wij bewaren gegevens alleen zo lang als nodig voor:",
+            "list": [
+              "Het leveren van diensten",
+              "Wettelijke verplichtingen",
+              "Het oplossen van geschillen"
+            ]
+          }
+        },
+        "end_description": "Na deze periode worden de gegevens veilig verwijderd."
+      },
+      "6": {
+        "title": "6. Uw Rechten",
+        "subsections": {
+          "1": {
+            "title": "Onder de AVG heeft u recht op:",
+            "list": [
+              "Toegang tot uw gegevens",
+              "Correctie of verwijdering",
+              "Beperking van verwerking",
+              "Intrekken van toestemming"
+            ]
+          }
+        },
+        "end_description": "Neem contact met ons op via:",
+        "email": "belgiancarservices@gmail.com"
+      },
+      "7": {
+        "title": "7. Gegevensbeveiliging",
+        "description": "Wij implementeren passende technische maatregelen om uw gegevens te beschermen tegen ongeautoriseerde toegang."
+      },
+      "8": {
+        "title": "8. Contactinformatie",
+        "email": "belgiancarservices@gmail.com",
+        "phone": "+32 490 60 94 63",
+        "address": "Hermansstraat 35, 2570 Duffel, België"
+      }
+    }
+  },
+  "website_terms": {
+    "title": "Websitevoorwaarden",
+    "description": "Duidelijke voorwaarden voor het gebruik van onze website en diensten.",
+    "sections": {
+      "1": {
+        "title": "1. Inleiding",
+        "description": "Door deze website te gebruiken, gaat u akkoord met deze voorwaarden. Als u niet akkoord gaat, verzoeken wij u de website niet te gebruiken."
+      },
+      "2": {
+        "title": "2. Gebruik van de website",
+        "description": "U gaat akkoord de website alleen voor wettige doeleinden te gebruiken zonder de werking te verstoren.",
+        "subsections": {
+          "1": {
+            "list": [
+              "Wetgeving naleven",
+              "Andere rechten respecteren",
+              "Geen ongeoorloofde toegang proberen te verkrijgen"
+            ]
+          }
+        }
+      },
+      "3": {
+        "title": "3. Informatie",
+        "description": "De informatie op de website is voor algemene doeleinden. Boekingen zijn onder voorbehoud van bevestiging."
+      },
+      "4": {
+        "title": "4. Intellectueel eigendom",
+        "description": "Alle inhoud van de website is eigendom van Belgian Car Service, tenzij anders vermeld."
+      },
+      "5": {
+        "title": "5. Aansprakelijkheid",
+        "description": "Wij zijn niet aansprakelijk voor tijdelijke onbeschikbaarheid of technische problemen buiten onze controle."
+      },
+      "6": {
+        "title": "6. Externe links",
+        "description": "Wij zijn niet verantwoordelijk voor de inhoud of veiligheid van externe websites die via links op onze site worden bezocht."
+      },
+      "7": {
+        "title": "7. Wijzigingen",
+        "description": "Wij behouden ons het recht voor deze voorwaarden op elk moment bij te werken."
+      },
+      "8": {
+        "title": "8. Toepasselijk recht",
+        "description": "Deze voorwaarden worden beheerst door het Belgisch recht. Geschillen worden beslecht voor Belgische rechtbanken."
+      },
+      "9": {
+        "title": "9. Contact",
+        "email": "belgiancarservices@gmail.com",
+        "phone": "+32 490 60 94 63",
+        "address": "Hermansstraat 35, 2570 Duffel, België"
+      }
+    }
+  },
+  "thank_you": "Bedankt voor uw vertrouwen! Wij verwerken uw aanvraag binnen 30 minuten en reageren tijdens de kantooruren."
+}

@@ -18,6 +18,13 @@ import {
     ExperienceIcon } from "../(icons)"
 import { Button } from "@/components/ui/button"
 import { useMediaQuery } from "usehooks-ts"
+import { useLayoutEffect, useRef } from "react"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
+
+if (typeof window !== "undefined") {
+    gsap.registerPlugin(ScrollTrigger);
+}
 
 
 const MBenefitsCard = ({title, description, icon}: {title: string, description: string, icon: React.ReactNode}) => (
@@ -35,10 +42,55 @@ const MBenefitsCard = ({title, description, icon}: {title: string, description: 
 )
 
 const MBenefits = () => {
-    const { ref } = useSectionScroll('benefits')
+    const { ref: sectionRef } = useSectionScroll('benefits')
+    const containerRef = useRef<HTMLDivElement>(null)
     const tbenefits = useTranslations('benefits')
     const tbenefits_cards = useTranslations('benefits.cards')
     const tbutton = useTranslations('buttons')
+
+    useLayoutEffect(() => {
+        const ctx = gsap.context(() => {
+            // Header animation
+            gsap.from(".benefits-header > *", {
+                scrollTrigger: {
+                    trigger: ".benefits-header",
+                    start: "top 85%",
+                },
+                y: 30,
+                opacity: 0,
+                duration: 1,
+                stagger: 0.2,
+                ease: "power3.out"
+            });
+
+            // Cards animation
+            gsap.from(".benefit-card", {
+                scrollTrigger: {
+                    trigger: ".benefits-grid",
+                    start: "top 80%",
+                },
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                stagger: 0.1,
+                ease: "power3.out"
+            });
+
+            // Button animation
+            gsap.from(".benefits-button", {
+                scrollTrigger: {
+                    trigger: ".benefits-button",
+                    start: "top 90%",
+                },
+                y: 20,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power3.out"
+            });
+
+        }, containerRef);
+        return () => ctx.revert();
+    }, []);
 
     const benefitsData = [
         {
@@ -74,19 +126,25 @@ const MBenefits = () => {
     ]
         
   return (
-    <div className="my-20 flex flex-col gap-14" ref={ref} id="benefits">
-        <div className="flex flex-col gap-5 max-w-xl text-center mx-auto text-[#171717]">
-            <h2>{tbenefits('title')}</h2>
-            <p className="button font-medium max-w-md mx-auto">{tbenefits('subtitle')}</p>
-        </div>
+    <div className="max-w-7xl mx-auto" ref={sectionRef} id="benefits">
+        <div className="my-20 flex flex-col gap-14" ref={containerRef}>
+            <div className="benefits-header flex flex-col gap-5 max-w-xl text-center mx-auto text-[#171717]">
+                <h2>{tbenefits('title')}</h2>
+                <p className="button font-medium max-w-md mx-auto">{tbenefits('subtitle')}</p>
+            </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-10 w-full max-w-7xl mx-auto">
-            {benefitsData.map((benefit, index) => (
-                <MBenefitsCard key={index} {...benefit} />
-            ))}
-        </div>
+            <div className="benefits-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-10 w-full max-w-7xl mx-auto">
+                {benefitsData.map((benefit, index) => (
+                    <div key={index} className="benefit-card">
+                        <MBenefitsCard {...benefit} />
+                    </div>
+                ))}
+            </div>
 
-        <Button className="mx-auto w-auto">{tbutton('book_an_appointment')}</Button>
+            <div className="benefits-button flex justify-center">
+                <Button className="mx-auto w-auto">{tbutton('book_an_appointment')}</Button>
+            </div>
+        </div>
     </div>
   )
 }

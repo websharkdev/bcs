@@ -12,6 +12,13 @@ import {
 import { Button } from "@/components/ui/button"
 import { WhatsAppIcon } from "@/components/general/header/icons"
 import { removeSpacings } from "@/lib/string"
+import { useLayoutEffect, useRef } from "react"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
+
+if (typeof window !== "undefined") {
+    gsap.registerPlugin(ScrollTrigger);
+}
 
 const FAQQuestion = ({ question }: { question: string }) => {
     const tquestion = useTranslations(`faq.questions.${question}`)
@@ -29,9 +36,41 @@ const FAQQuestion = ({ question }: { question: string }) => {
 }
 
 const MFAQ = () => {
-    const { ref } = useSectionScroll('faq')
+    const { ref: sectionRef } = useSectionScroll('faq')
+    const containerRef = useRef<HTMLDivElement>(null)
     const tabout = useTranslations('faq')
     const tbuttons = useTranslations('buttons')
+
+    useLayoutEffect(() => {
+        const ctx = gsap.context(() => {
+            // Header animation
+            gsap.from(".faq-header > *", {
+                scrollTrigger: {
+                    trigger: ".faq-header",
+                    start: "top 85%",
+                },
+                y: 30,
+                opacity: 0,
+                duration: 1,
+                stagger: 0.2,
+                ease: "power3.out"
+            });
+
+            // Accordion animation
+            gsap.from(".faq-accordion", {
+                scrollTrigger: {
+                    trigger: ".faq-accordion",
+                    start: "top 80%",
+                },
+                y: 40,
+                opacity: 0,
+                duration: 1.2,
+                ease: "power3.out"
+            });
+
+        }, containerRef);
+        return () => ctx.revert();
+    }, []);
 
 
     const questions = ['appointment', 'diagnostics', 'prices', 'time', 'brands', 'companies']
@@ -42,31 +81,33 @@ const MFAQ = () => {
     const rightColumn = questions.slice(midIndex)
 
     return (
-        <div className="my-20 flex flex-col gap-14 justify-center items-center" ref={ref} id="faq">
-            <div className="text-center mx-auto flex flex-col justify-center items-center gap-5">
-                <h2>{tabout('title')}</h2>
-                <p className="max-w-xl button font-medium text-[#171717] text-center">{tabout('description')}</p>
+        <div className="max-w-7xl mx-auto" ref={sectionRef} id="faq">
+            <div className="my-20 flex flex-col gap-14 justify-center items-center" ref={containerRef}>
+                <div className="faq-header text-center mx-auto flex flex-col justify-center items-center gap-5">
+                    <h2>{tabout('title')}</h2>
+                    <p className="max-w-xl button font-medium text-[#171717] text-center">{tabout('description')}</p>
 
 
-                <Button variant='whatsup_d' className="mt-5">
-                    <WhatsAppIcon className="size-6" />
-                    <span>{tbuttons('call_on_whatsapp')}</span>
-                </Button>
+                    <Button variant='whatsup_d' className="mt-5">
+                        <WhatsAppIcon className="size-6" />
+                        <span>{tbuttons('call_on_whatsapp')}</span>
+                    </Button>
+                </div>
+
+
+                <Accordion type="single" collapsible className="faq-accordion grid grid-cols-1 lg:grid-cols-2 w-full gap-x-10 gap-y-0 items-start max-w-7xl">
+                    <div className="flex flex-col gap-5 items-start">
+                        {leftColumn.map((question, index) => (
+                            <FAQQuestion key={`faq-left-${index}`} question={question} />
+                        ))}
+                    </div>
+                    <div className="flex flex-col gap-5 items-start">
+                        {rightColumn.map((question, index) => (
+                            <FAQQuestion key={`faq-right-${index}`} question={question} />
+                        ))}
+                    </div>
+                </Accordion>
             </div>
-
-
-            <Accordion type="single" collapsible className="grid grid-cols-1 lg:grid-cols-2 w-full gap-x-10 gap-y-0 items-start max-w-7xl">
-                <div className="flex flex-col gap-5 items-start">
-                    {leftColumn.map((question, index) => (
-                        <FAQQuestion key={`faq-left-${index}`} question={question} />
-                    ))}
-                </div>
-                <div className="flex flex-col gap-5 items-start">
-                    {rightColumn.map((question, index) => (
-                        <FAQQuestion key={`faq-right-${index}`} question={question} />
-                    ))}
-                </div>
-            </Accordion>
         </div>
     )
 }

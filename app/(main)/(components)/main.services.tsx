@@ -14,6 +14,13 @@ import { useTranslations } from "next-intl"
 import Image from "next/image"
 import { useModalsStore } from "@/storage/modals.store"
 import { ServiceType } from "@/components/general/contacts/schema"
+import { useLayoutEffect, useRef } from "react"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
+
+if (typeof window !== "undefined") {
+    gsap.registerPlugin(ScrollTrigger);
+}
 
 
 const MServicesCard = ({title, description, image, serviceType}: {title: string, description: string, image: string, serviceType: ServiceType}) => (
@@ -50,9 +57,42 @@ const MServicesCard = ({title, description, image, serviceType}: {title: string,
 )
 
 const MServices = () => {
-    const { ref } = useSectionScroll('services')
+    const { ref: sectionRef } = useSectionScroll('services')
+    const containerRef = useRef<HTMLDivElement>(null)
     const tservices = useTranslations('services')
     const tservices_cards = useTranslations('services.cards')
+
+    useLayoutEffect(() => {
+        const ctx = gsap.context(() => {
+            // Header animation
+            gsap.from(".services-header > *", {
+                scrollTrigger: {
+                    trigger: ".services-header",
+                    start: "top 85%",
+                },
+                y: 30,
+                opacity: 0,
+                duration: 1,
+                stagger: 0.2,
+                ease: "power3.out"
+            });
+
+            // Cards animation
+            gsap.from(".service-card", {
+                scrollTrigger: {
+                    trigger: ".services-grid",
+                    start: "top 80%",
+                },
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                stagger: 0.15,
+                ease: "power3.out"
+            });
+
+        }, containerRef);
+        return () => ctx.revert();
+    }, []);
 
 
     const servicesData = [
@@ -85,20 +125,24 @@ const MServices = () => {
         
 
   return (
-    <div className="flex flex-col gap-14 my-20" ref={ref} id="services">
-        <div className="flex flex-col gap-5 max-w-xl text-center mx-auto">
-            <h2>{tservices('title')}</h2>
-            <p>{tservices('subtitle')}</p>
-        </div>
+    <div className="max-w-7xl mx-auto" ref={sectionRef} id="services">
+        <div className="flex flex-col gap-14 my-20" ref={containerRef}>
+            <div className="services-header flex flex-col gap-5 max-w-xl text-center mx-auto">
+                <h2>{tservices('title')}</h2>
+                <p>{tservices('subtitle')}</p>
+            </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-7xl mx-auto">
-            {servicesData.map((service) => (
-                <MServicesCard key={service.title} {...service} />
-            ))}
-        </div>
+            <div className="services-grid grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-7xl mx-auto">
+                {servicesData.map((service) => (
+                    <div key={service.title} className="service-card">
+                        <MServicesCard {...service} />
+                    </div>
+                ))}
+            </div>
 
-        <div className="flex justify-center items-center">
-            <Button className="w-full lg:w-auto" onClick={() => useModalsStore.getState().setOpen(true)}>{tservices('load_more')}</Button>
+            <div className="flex justify-center items-center">
+                <Button className="w-full lg:w-auto" onClick={() => useModalsStore.getState().setOpen(true)}>{tservices('load_more')}</Button>
+            </div>
         </div>
     </div>
   )

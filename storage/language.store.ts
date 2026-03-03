@@ -3,6 +3,9 @@ import { create } from "zustand";
 export enum ELanguage {
     EN = "en",
     RU = "ru",
+    NL = "nl",
+    FR = "fr",
+    UA = "ua",
 }
 
 type TLanguageStore = {

@@ -1,4 +1,5 @@
 import GContactUs from "@/components/general/contacts/contacts.block";
+import { ServiceType } from "@/components/general/contacts/schema";
 import { BPolicy } from "@/components/general/policy";
 
 const WebsiteTerms = () => {
@@ -7,7 +8,7 @@ const WebsiteTerms = () => {
   return (
     <div className="min-h-screen">
         <BPolicy namespace="website_terms" sections={sections} />
-        <GContactUs />
+        <GContactUs type={ServiceType.MAINTENANCE}/>
     </div>
   )
 }

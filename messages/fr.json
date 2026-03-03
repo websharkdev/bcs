@@ -1,0 +1,361 @@
+{
+  "menu": {
+    "home": "Accueil",
+    "services": "Services",
+    "reviews": "Avis",
+    "b2b": "B2B",
+    "about_us": "À propos",
+    "contact_us": "Contact"
+  },
+  "services_form": {
+    "title": "Services",
+    "maintenance": "Petit & Grand Entretien",
+    "brakes": "Remplacement des Freins",
+    "dpf": "Nettoyage & Remplacement FAP",
+    "electrical_repairs": "Réparations Électriques Auto",
+    "vehicle": "Diagnostic Complet du Véhicule",
+    "tire": "Service de Pneus & Montage",
+    "other": "Autre"
+  },
+  "footer": {
+    "copyright": "© 2025 Tous droits réservés",
+    "navigation": "Navigation",
+    "legal": {
+      "title": "Juridique",
+      "privacy_policy": "Politique de Confidentialité",
+      "website_terms": "Conditions d'Utilisation"
+    },
+    "contact": "Contacts",
+    "phone": "+32 490 60 94 63",
+    "address": "Hermansstraat 35, 2570 Duffel, Belgique",
+    "email": "belgiancarservices@gmail.com",
+    "google_maps_link": "https://www.google.com/maps/dir/?api=1&destination=Hermansstraat+35,+2570+Duffel,+Belgium"
+  },
+  "buttons": {
+    "plan_a_route": "Planifier un itinéraire",
+    "call_us": "Appelez-nous",
+    "call_on_whatsapp": "Appeler sur WhatsApp",
+    "book_an_appointment": "Prendre rendez-vous"
+  },
+  "home": {
+    "title": "Réparation automobile fiable\nà Duffel, Belgique",
+    "subtitle": "Confiance depuis 2024 — diagnostic honnête, service fiable et une équipe qui respecte votre temps.",
+    "clients": "Clients"
+  },
+  "services": {
+    "title": "Nos services",
+    "subtitle": "Solutions automobiles professionnelles livrées avec précision, fiabilité et attention à chaque détail.",
+    "cards": {
+      "maintenance": {
+        "title": "Petit & Grand Entretien",
+        "description": "Entretien de routine complet incluant vidange, filtres, fluides et inspections complètes pour assurer la fiabilité à long terme."
+      },
+      "brakes": {
+        "title": "Service de Freins",
+        "description": "Inspection approfondie du système de freinage et remplacement professionnel des plaquettes et disques pour une sécurité maximale."
+      },
+      "dpf": {
+        "title": "Nettoyage & Remplacement FAP",
+        "description": "Diagnostics FAP avancés, nettoyage et remplacement pour restaurer l'efficacité du moteur et respecter les normes d'émission."
+      },
+      "electrical_repairs": {
+        "title": "Réparations Électriques Auto",
+        "description": "Diagnostic précis et réparation du câblage, des capteurs, des batteries, des démarreurs et des systèmes embarqués complexes."
+      }
+    },
+    "load_more": "Plus de services"
+  },
+  "benefits": {
+    "title": "Pourquoi Belgian Car Service se distingue",
+    "subtitle": "Service honnête, techniciens qualifiés et une approche centrée sur le client.",
+    "cards": {
+      "pricing": {
+        "title": "Prix Compétitifs",
+        "description": "Tarification transparente sans frais cachés ni services inutiles."
+      },
+      "quality": {
+        "title": "Travail de Qualité",
+        "description": "Nous suivons les normes et utilisons des pièces éprouvées et fiables."
+      },
+      "fast": {
+        "title": "Service Rapide",
+        "description": "Des processus efficaces garantissent des délais de réparation plus courts que la moyenne."
+      },
+      "vehicle": {
+        "title": "5 Ponts Élévateurs Disponibles",
+        "description": "Équipé de plusieurs ponts, dont un pour usage intensif, pour voitures et camionnettes."
+      },
+      "honest": {
+        "title": "Approche Honnête",
+        "description": "Pas de vente forcée, pas de travail gonflé, seulement ce dont votre véhicule a vraiment besoin."
+      },
+      "experience": {
+        "title": "Équipe Expérimentée",
+        "description": "8 spécialistes qualifiés avec une solide expertise mécanique pratique."
+      }
+    }
+  },
+  "reviews": {
+    "title": "Ce que disent nos clients",
+    "subtitle": "Commentaires honnêtes de vrais clients sur leur expérience avec notre service.",
+    "slides": {
+      "mason": {
+        "title": "Communication claire, prix équitables et pas de réparations inutiles. Tout a été expliqué avant le début des travaux.",
+        "name": "Mikhail M.",
+        "car": "Propriétaire de Volkswagen Golf GTI MK5"
+      },
+      "viktor": {
+        "title": "Diagnostic rapide et réparation efficace. Ma voiture était prête plus tôt que prévu.",
+        "name": "Viktor O.",
+        "car": "Propriétaire de BMW 330i"
+      },
+      "marphisa": {
+        "title": "Excellente expérience de la réservation à l'enlèvement. Processus fluide et excellents résultats.",
+        "name": "Marphisa D.",
+        "car": "Propriétaire de Fiat Ibiza"
+      },
+      "arnou": {
+        "title": "Réponse rapide et communication professionnelle. J'étais confiant en leur confiant ma voiture.",
+        "name": "Arnou L.",
+        "car": "Propriétaire d'Audi A3"
+      },
+      "anton": {
+        "title": "Travail fiable et attention aux détails. La voiture est parfaite après le service.",
+        "name": "Anton R.",
+        "car": "Propriétaire de Volkswagen Golf GTI"
+      }
+    }
+  },
+  "b2b": {
+    "title": "Nous proposons des solutions de flotte B2B",
+    "description": "Si votre entreprise gère ses propres véhicules, l'immobilisation n'est pas seulement un inconvénient - elle impacte directement les revenus. Nous proposons un entretien de flotte structuré.",
+    "cards": {
+      "rates": {
+        "title": "Tarifs Entreprise Compétitifs",
+        "description": "Tarification transparente et conditions flexibles basées sur la taille de la flotte."
+      },
+      "schedule": {
+        "title": "Service Prioritaire & Planification Rapide",
+        "description": "Délais d'attente réduits et gestion rapide des problèmes urgents."
+      },
+      "rapid": {
+        "title": "Diagnostic & Réparations Rapides",
+        "description": "Des flux de travail efficaces garantissent un délai d'exécution rapide et une immobilisation minimale."
+      },
+      "aggrements": {
+        "title": "Contrats de Service Personnalisés",
+        "description": "Plans de service adaptés aux besoins de votre entreprise."
+      }
+    }
+  },
+  "about_us": {
+    "title": "Notre travail en action",
+    "description": "Un aperçu de notre atelier, de nos équipements et de la qualité derrière chaque réparation."
+  },
+  "faq": {
+    "title": "Questions Populaires",
+    "description": "Réponses claires sur nos services, prix et réservations. Vous n'avez pas trouvé ce que vous cherchez ? Contactez-nous directement.",
+    "questions": {
+      "appointment": {
+        "title": "Comment puis-je prendre rendez-vous ?",
+        "description": "Vous pouvez réserver par téléphone, message ou via notre site web. Nous confirmerons la disponibilité et fixerons un créneau pratique."
+      },
+      "diagnostics": {
+        "title": "Proposez-vous un diagnostic avant réparation ?",
+        "description": "Oui, nous commençons toujours par un diagnostic pour trouver la cause exacte et éviter des coûts inutiles."
+      },
+      "prices": {
+        "title": "Vos prix sont-ils fixes ?",
+        "description": "Nous fournissons une estimation précise après le diagnostic, afin que le prix reste honnête et transparent."
+      },
+      "time": {
+        "title": "Combien de temps dure un entretien typique ?",
+        "description": "Cela dépend du travail : d'une heure pour un petit entretien à quelques jours pour des réparations complexes."
+      },
+      "brands": {
+        "title": "Entretenez-vous toutes les marques de voitures ?",
+        "description": "Oui, nous travaillons sur la plupart des marques européennes et asiatiques de voitures et camionnettes."
+      },
+      "companies": {
+        "title": "Proposez-vous l'entretien de flotte pour les entreprises ?",
+        "description": "Oui, nous offrons des conditions spéciales et une priorité pour les entreprises et indépendants."
+      }
+    }
+  },
+  "contact_us": {
+    "title": "Réservez votre service",
+    "description": "Réservez votre visite en quelques étapes : choisissez un service et nous confirmerons rapidement. Ou contactez-nous via WhatsApp.",
+    "form": {
+      "title": "Choisir le service",
+      "name": "Votre nom complet",
+      "phone": "Votre téléphone",
+      "email": "Votre e-mail",
+      "vin_code": "Code VIN",
+      "min_vin_code": "Min. 17 caractères",
+      "max_vin_code": "Max. 17 caractères",
+      "min_full_name": "Min. 3 caractères",
+      "max_full_name": "Max. 100 caractères",
+      "min_phone": "Min. 10 caractères",
+      "max_phone": "Max. 15 caractères",
+      "min_email": "Min. 5 caractères",
+      "max_email": "Max. 100 caractères",
+      "invalid_email": "E-mail invalide"
+    }
+  },
+  "privacy_policy": {
+    "title": "Politique de Confidentialité",
+    "description": "Vos données sont traitées avec transparence, sécurité et en conformité avec les normes européennes.",
+    "sections": {
+      "1": {
+        "title": "1. Introduction",
+        "description": "Chez Belgian Car Service, nous respectons votre vie privée. Cette politique explique quelles informations nous recueillons et comment nous les protégeons selon le RGPD."
+      },
+      "2": {
+        "title": "2. Informations Collectées",
+        "description": "Lorsque vous utilisez notre site ou réservez un service, nous pouvons recueillir :",
+        "subsections": {
+          "1": {
+            "title": "Données via formulaires :",
+            "list": [
+              "Nom complet",
+              "Numéro de téléphone",
+              "Adresse e-mail",
+              "Infos véhicule (Marque, Modèle, VIN)",
+              "Service sélectionné"
+            ]
+          },
+          "2": {
+            "title": "Données collectées automatiquement :",
+            "list": [
+              "Adresse IP",
+              "Infos navigateur",
+              "Cookies"
+            ]
+          }
+        }
+      },
+      "3": {
+        "title": "3. But des données",
+        "subsections": {
+          "1": {
+            "title": "Nous utilisons vos données pour :",
+            "list": [
+              "Planifier et confirmer les rendez-vous",
+              "Vous contacter concernant votre véhicule",
+              "Préparer les diagnostics basés sur le VIN",
+              "Établir les factures et tenir la comptabilité"
+            ]
+          }
+        },
+        "end_description": "Nous ne vendons ni ne louons vos informations personnelles."
+      },
+      "4": {
+        "title": "4. Base Légale",
+        "subsections": {
+          "1": {
+            "title": "Nous traitons vos données sur la base de :",
+            "list": [
+              "Exécution du contrat (réservation et réparations)",
+              "Obligations légales (comptabilité)",
+              "Votre consentement"
+            ]
+          }
+        }
+      },
+      "5": {
+        "title": "5. Conservation des données",
+        "subsections": {
+          "1": {
+            "title": "Nous conservons les données aussi longtemps que nécessaire pour :",
+            "list": [
+              "Fournir les services",
+              "Obligations légales",
+              "Résoudre les litiges"
+            ]
+          }
+        },
+        "end_description": "Après cette période, les données sont supprimées en toute sécurité."
+      },
+      "6": {
+        "title": "6. Vos Droits",
+        "subsections": {
+          "1": {
+            "title": "Selon le RGPD, vous avez le droit de :",
+            "list": [
+              "Accéder à vos données",
+              "Demander la correction ou suppression",
+              "Restreindre le traitement",
+              "Retirer votre consentement"
+            ]
+          }
+        },
+        "end_description": "Contactez-nous à :",
+        "email": "belgiancarservices@gmail.com"
+      },
+      "7": {
+        "title": "7. Sécurité des Données",
+        "description": "Nous mettons en œuvre des mesures techniques appropriées pour protéger vos données contre tout accès non autorisé."
+      },
+      "8": {
+        "title": "8. Coordonnées",
+        "email": "belgiancarservices@gmail.com",
+        "phone": "+32 490 60 94 63",
+        "address": "Hermansstraat 35, 2570 Duffel, Belgique"
+      }
+    }
+  },
+  "website_terms": {
+    "title": "Conditions d'Utilisation",
+    "description": "Conditions claires définissant l'utilisation de notre site et de nos services.",
+    "sections": {
+      "1": {
+        "title": "1. Introduction",
+        "description": "En utilisant ce site, vous acceptez ces conditions. Si vous n'êtes pas d'accord, veuillez cesser d'utiliser le site."
+      },
+      "2": {
+        "title": "2. Utilisation du Site",
+        "description": "Vous acceptez d'utiliser le site à des fins légales sans perturber son fonctionnement.",
+        "subsections": {
+          "1": {
+            "list": [
+              "Respecter les lois",
+              "Respecter les droits d'autrui",
+              "Ne pas tenter d'accès non autorisé"
+            ]
+          }
+        }
+      },
+      "3": {
+        "title": "3. Informations",
+        "description": "Les informations sur le site sont à titre informatif. Les réservations sont soumises à confirmation."
+      },
+      "4": {
+        "title": "4. Propriété Intellectuelle",
+        "description": "Tout le contenu du site est la propriété de Belgian Car Service, sauf indication contraire."
+      },
+      "5": {
+        "title": "5. Limitation de Responsabilité",
+        "description": "Nous ne sommes pas responsables de l'indisponibilité temporaire ou des problèmes techniques hors de notre contrôle."
+      },
+      "6": {
+        "title": "6. Liens Tierces Parties",
+        "description": "Nous ne sommes pas responsables du contenu ou de la sécurité des sites externes liés."
+      },
+      "7": {
+        "title": "7. Modifications",
+        "description": "Nous nous réservons le droit de mettre à jour ces conditions à tout moment."
+      },
+      "8": {
+        "title": "8. Droit Applicable",
+        "description": "Ces conditions sont régies par le droit belge. Les litiges sont soumis aux tribunaux belges."
+      },
+      "9": {
+        "title": "9. Contact",
+        "email": "belgiancarservices@gmail.com",
+        "phone": "+32 490 60 94 63",
+        "address": "Hermansstraat 35, 2570 Duffel, Belgique"
+      }
+    }
+  },
+  "thank_you": "Merci de votre confiance ! Nous traiterons votre demande dans les 30 minutes et répondrons pendant les heures de bureau."
+}

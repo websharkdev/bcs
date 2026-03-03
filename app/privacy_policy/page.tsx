@@ -1,6 +1,7 @@
 
 
 import GContactUs from "@/components/general/contacts/contacts.block";
+import { ServiceType } from "@/components/general/contacts/schema";
 import { BPolicy } from "@/components/general/policy";
 
 const PrivacyPolicy = () => {
@@ -9,7 +10,7 @@ const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen">
         <BPolicy namespace="privacy_policy" sections={sections} />
-        <GContactUs />
+        <GContactUs type={ServiceType.MAINTENANCE}/>
     </div>
   )
 }
