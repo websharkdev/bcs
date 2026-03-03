@@ -1,6 +1,7 @@
 import { NextIntlClientProvider } from 'next-intl'
 import React from 'react'
-import { GHeader } from '../general'
+import { GFooter, GHeader } from '../general'
+import { Toaster } from 'sonner'
 
 const PGeneral = ({children}: {children: Readonly<React.ReactNode>}) => {
   return (
@@ -8,6 +9,8 @@ const PGeneral = ({children}: {children: Readonly<React.ReactNode>}) => {
         <main>
             <GHeader/>
             {children}
+            <GFooter/>
+            <Toaster />
         </main>
     </NextIntlClientProvider>
   )

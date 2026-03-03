@@ -11,7 +11,7 @@ import Link from "next/link";
 
 const GHeaderMenu = () => {
     const {section} = useSectionsStore()
-    const t = useTranslations("HeaderMenu") 
+    const t = useTranslations("menu") 
 
     const menuData = [
         {

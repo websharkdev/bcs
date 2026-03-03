@@ -11,7 +11,7 @@ interface Props extends SwiperProps {
     slide_settings?: SwiperSlideProps,
 }
 
-const Carousel = ({ slides, slide_settings, ...props }: Props) => (
+const Carousel = ({ slides, slide_settings, modules = [], ...props }: Props) => (
     <Swiper
         pagination={{
             clickable: true,
@@ -21,8 +21,9 @@ const Carousel = ({ slides, slide_settings, ...props }: Props) => (
             disableOnInteraction: false,
         }}
         loop
-        effect={'fade'}
-        modules={[Pagination, EffectFade, Autoplay]} {...props}>
+        modules={[Pagination, Autoplay, ...modules]} 
+        {...props}
+    >
         {slides.map((slide, index) => (
             <SwiperSlide key={index} {...slide_settings}>{slide}</SwiperSlide>
         ))}

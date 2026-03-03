@@ -42,7 +42,7 @@ const MFAQ = () => {
     const rightColumn = questions.slice(midIndex)
 
     return (
-        <div className="min-h-screen my-20 flex flex-col gap-14 justify-center items-center" ref={ref} id="faq">
+        <div className="my-20 flex flex-col gap-14 justify-center items-center" ref={ref} id="faq">
             <div className="text-center mx-auto flex flex-col justify-center items-center gap-5">
                 <h2>{tabout('title')}</h2>
                 <p className="max-w-xl button font-medium text-[#171717] text-center">{tabout('description')}</p>
@@ -55,7 +55,7 @@ const MFAQ = () => {
             </div>
 
 
-            <Accordion type="single" collapsible className="grid grid-cols-1 md:grid-cols-2 w-full gap-x-10 gap-y-0 items-start">
+            <Accordion type="single" collapsible className="grid grid-cols-1 md:grid-cols-2 w-full gap-x-10 gap-y-0 items-start max-w-7xl">
                 <div className="flex flex-col gap-5 items-start">
                     {leftColumn.map((question, index) => (
                         <FAQQuestion key={`faq-left-${index}`} question={question} />

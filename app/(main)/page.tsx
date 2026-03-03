@@ -1,4 +1,5 @@
-import { MAboutUs, MB2B, MBenefits, MContactUs, MFAQ, MHome, MReviews, MServices } from "./(components)";
+import { GContactUs } from "@/components/general/contacts";
+import { MAboutUs, MB2B, MBenefits, MFAQ, MHome, MReviews, MServices } from "./(components)";
 
 
 
@@ -36,12 +37,12 @@ export default function Home() {
         },
         {
             id: 'contact-us',
-            component: <MContactUs />
+            component: <GContactUs />
         }
     ]
 
   return (
-    <div className="flex flex-col gap-20 px-20">
+    <div className="flex flex-col gap-20 px-5 md:px-20">
         {sections.map((section) => (
             <section key={section.id} id={section.id}>
                 {section.component}

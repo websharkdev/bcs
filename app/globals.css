@@ -147,8 +147,8 @@ html {
 
 /* width */
 ::-webkit-scrollbar {
-    width: 4px;
-    height: 4px;
+    width: 0.25rem;
+    height: 0.25rem;
 }
 
 /* Track */
@@ -230,6 +230,67 @@ h4 {
     letter-spacing: 0%;
 }
 
+@media (max-width: 768px) {
+
+    h1 {
+        font-size: 2.75rem;
+    }
+
+    h2 {
+        font-size: 2.25rem;
+    }
+
+    h3 {
+        font-size: 1.75rem;
+    }
+
+    h4 {
+        font-size: 1.25rem;
+    }
+
+    .subheading {
+        font-size: 1rem;
+    }
+
+    .title {
+        font-size: 1.125rem;
+    }
+
+    .button {
+        font-size: 0.765rem;
+    }
+
+    .caption {
+        font-size: 0.75rem;
+    }
+
+    .numbers {
+        font-size: 1.25rem;
+    }
+
+    .menu-item {
+        font-size: 1.25rem;
+        line-height: 120%;
+        font-weight: 500;
+    }
+
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: transparent
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: transparent
+    }
+}
+
 /* SLIDER */
 
 
@@ -246,8 +307,8 @@ h4 {
 }
 
 .swiper-pagination-bullet {
-    width: 10px !important;
-    height: 10px !important;
+    width: 0.625rem !important;
+    height: 0.625rem !important;
     background: #A9A9A9 !important;
     aspect-ratio: 1/1;
     opacity: 1 !important;
@@ -262,5 +323,5 @@ h4 {
 .swiper-pagination-custom,
 .swiper-horizontal>.swiper-pagination-bullets,
 .swiper-pagination-bullets.swiper-pagination-horizontal {
-    bottom: 30px !important
+    bottom: 1.875rem !important
 }

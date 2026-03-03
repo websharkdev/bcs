@@ -26,7 +26,7 @@ const GHeaderLanguage = () => {
 
   return (
     <Select value={language || ELanguage.EN} onValueChange={handleChange}>
-        <SelectTrigger>
+        <SelectTrigger className="w-full md:w-auto">
             <SelectValue placeholder={language || ELanguage.EN} />
         </SelectTrigger>
         <SelectContent align="end" side="bottom">

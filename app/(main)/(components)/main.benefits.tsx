@@ -17,13 +17,14 @@ import {
     HonestIcon,
     ExperienceIcon } from "../(icons)"
 import { Button } from "@/components/ui/button"
+import { useMediaQuery } from "usehooks-ts"
 
 
 const MBenefitsCard = ({title, description, icon}: {title: string, description: string, icon: React.ReactNode}) => (
     <Card className="border-0 shadow-none p-0">
         <CardHeader className="p-0 justify-center items-center gap-2.5">
             <CardTitle className="title text-[#171717] text-center">{title}</CardTitle>
-            <CardDescription className="button text-[#A9A9A9] font-medium text-center max-w-96">{description}</CardDescription>
+            <CardDescription className="button text-[#A9A9A9] font-medium text-center max-w-[300px] md:max-w-96">{description}</CardDescription>
         </CardHeader>
         <CardContent className="-order-10 p-0">
             <div className="flex justify-center items-center w-max mx-auto p-4 text-[#2191FF] border-2 border-[#EBEBEB] rounded-xl">
@@ -38,7 +39,6 @@ const MBenefits = () => {
     const tbenefits = useTranslations('benefits')
     const tbenefits_cards = useTranslations('benefits.cards')
     const tbutton = useTranslations('buttons')
-
 
     const benefitsData = [
         {
@@ -74,20 +74,19 @@ const MBenefits = () => {
     ]
         
   return (
-    <div className="min-h-screen my-20 flex flex-col gap-14" ref={ref} id="benefits">
+    <div className="my-20 flex flex-col gap-14" ref={ref} id="benefits">
         <div className="flex flex-col gap-5 max-w-xl text-center mx-auto text-[#171717]">
             <h2>{tbenefits('title')}</h2>
             <p className="button font-medium max-w-md mx-auto">{tbenefits('subtitle')}</p>
         </div>
 
-        <div className="grid grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-10 w-full max-w-7xl mx-auto">
             {benefitsData.map((benefit, index) => (
                 <MBenefitsCard key={index} {...benefit} />
             ))}
         </div>
 
-        <Button className="mx-auto">{tbutton('book_an_appointment')}</Button>
-
+        <Button className="mx-auto w-auto">{tbutton('book_an_appointment')}</Button>
     </div>
   )
 }

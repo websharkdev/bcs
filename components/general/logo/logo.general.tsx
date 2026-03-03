@@ -1,14 +1,10 @@
-import Image from "next/image"
 import Link from "next/link"
+import { LDefault, LText } from "./(images)"
 
-export const GTextLogo = () => (
-    <div className="flex items-center gap-2">
-        <Image src="/logo-text.svg" alt="Belgain Car Services - Logo" width={1280} height={150} />
-    </div>
-)
+export const GTextLogo = ({ className = 'text-[#171717]' }: { className?: string }) => <LText className={className} />
 
-export const GLogo = () => (
+export const GLogo = ({ className = 'text-[#171717]' }: { className?: string }) => (
     <Link href="/">
-        <Image src="/logo.svg" alt="Belgain Car Services - Logo" width={137} height={48} />
+        <LDefault className={className} />
     </Link>
 )
