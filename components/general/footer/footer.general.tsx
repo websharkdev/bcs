@@ -1,37 +1,41 @@
+'use client'
+
+import { useModalsStore } from "@/storage/modals.store";
 import { useTranslations } from "next-intl";
 import { GContacts } from "../contacts";
+import { ServiceType } from "../contacts/schema";
 import { GLogo, GTextLogo } from "../logo";
 import { FooterItem, FooterSection } from "./footer.section";
-
 
 
 const GFooter = () => {
     const t = useTranslations('footer');
     const tmenu = useTranslations('menu');
-    const tservices = useTranslations('footer.services');
+    const tservices_form = useTranslations('services_form');
     const tlegal = useTranslations('footer.legal');
+    const { setOpen, setType } = useModalsStore();
 
     const navigationItems: FooterItem[] = [
-        { title: tmenu("home"), href: "#home" },
-        { title: tmenu("services"), href: "#services" },
-        { title: tmenu("reviews"), href: "#reviews" },
-        { title: tmenu("b2b"), href: "#b2b" },
-        { title: tmenu("about_us"), href: "#about-us" },
-        { title: tmenu("contact_us"), href: "#contact-us" },
+        { title: tmenu("home"), type: "link", href: "#home" },
+        { title: tmenu("services"), type: "link", href: "#services" },
+        { title: tmenu("reviews"), type: "link", href: "#reviews" },
+        { title: tmenu("b2b"), type: "link", href: "#b2b" },
+        { title: tmenu("about_us"), type: "link", href: "#about-us" },
+        { title: tmenu("contact_us"), type: "link", href: "#contact-us" },
     ];
 
     const serviceItems: FooterItem[] = [
-        { title: tservices("maintenance"), href: "#home" },
-        { title: tservices("brakes"), href: "#services" },
-        { title: tservices("dpf"), href: "#reviews" },
-        { title: tservices("electrical_repairs"), href: "#b2b" },
-        { title: tservices("vehicle"), href: "#about-us" },
-        { title: tservices("tire"), href: "#contact-us" },
+        { title: tservices_form("maintenance"), type: "button", onClick: () => {setOpen(true); setType(ServiceType.MAINTENANCE)} },
+        { title: tservices_form("brakes"), type: "button", onClick: () => {setOpen(true); setType(ServiceType.BRAKES)} },
+        { title: tservices_form("dpf"), type: "button", onClick: () => {setOpen(true); setType(ServiceType.DPF)} },
+        { title: tservices_form("electrical_repairs"), type: "button", onClick: () => {setOpen(true); setType(ServiceType.ELECTRICAL_REPAIRS)} },
+        { title: tservices_form("vehicle"), type: "button", onClick: () => {setOpen(true); setType(ServiceType.VEHICLE)} },
+        { title: tservices_form("tire"), type: "button", onClick: () => {setOpen(true); setType(ServiceType.TIRE)} },
     ];
 
     const legalItems: FooterItem[] = [
-        { title: tlegal("privacy_policy"), href: "/privacy_policy" },
-        { title: tlegal("website_terms"), href: "/website_terms" },
+        { title: tlegal("privacy_policy"), type: "link", href: "/privacy_policy" },
+        { title: tlegal("website_terms"), type: "link", href: "/website_terms" },
     ];
 
 
@@ -44,7 +48,7 @@ const GFooter = () => {
                 </div>
                 <div className="static z-1 flex flex-wrap md:flex-nowrap gap-5 md:gap-15 w-full md:w-max">
                     <FooterSection title={t('navigation')} items={navigationItems} />
-                    <FooterSection title={tservices('title')} items={serviceItems} />
+                    <FooterSection title={tservices_form('title')} items={serviceItems} />
                     <FooterSection title={tlegal('title')} items={legalItems} />
                     <FooterSection title={t('contact')} items={[]}>
                         <GContacts itemClassName="text-[#a9a9a9] hover:text-white!" />

@@ -1,19 +1,20 @@
 import { NextIntlClientProvider } from 'next-intl'
-import React from 'react'
-import { GFooter, GHeader } from '../general'
 import { Toaster } from 'sonner'
+import { GFooter, GHeader } from '../general'
+import ContactsModals from '../modals/contacts.modals'
 
-const PGeneral = ({children}: {children: Readonly<React.ReactNode>}) => {
-  return (
-    <NextIntlClientProvider>
-        <main>
-            <GHeader/>
-            {children}
-            <GFooter/>
+const PGeneral = ({ children }: { children: Readonly<React.ReactNode> }) => {
+    return (
+        <NextIntlClientProvider>
+            <GHeader />
+            <main>
+                {children}
+            </main>
+            <GFooter />
+            <ContactsModals />
             <Toaster />
-        </main>
-    </NextIntlClientProvider>
-  )
+        </NextIntlClientProvider>
+    )
 }
 
 export default PGeneral

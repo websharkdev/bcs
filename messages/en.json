@@ -7,18 +7,19 @@
     "about_us": "About Us",
     "contact_us": "Contact Us"
   },
-  "footer": {
-    "copyright": "© 2025 All rights reserved",
-    "navigation": "Navigation",
-    "services": {
+    "services_form": {
         "title": "Services",
         "maintenance": "Minor & Major Maintenance",
         "brakes": "Brake Replacement Service",
         "dpf": "DPF Cleaning & Replacement",
         "electrical_repairs": "Auto Electrical Repairs",
         "vehicle": "Full Vehicle Diagnostics",
-        "tire": "Tire Service & Fitting"
+        "tire": "Tire Service & Fitting",
+        "other": "Other"
     },
+  "footer": {
+    "copyright": "© 2025 All rights reserved",
+    "navigation": "Navigation",
     "legal": {
         "title": "Legal",
         "privacy_policy": "Privacy Policy",
@@ -187,13 +188,6 @@
     "description": "Book your visit in a few steps: choose a service and we’ll confirm shortly. Or contact us via WhatsApp.",
     "form": {
         "title": "Choose service",
-        "maintenance": "Maintenance",
-        "replacement": "Brake Replacement",
-        "dpf": "DPF Cleaning or Repl.",
-        "repairs": "Electrical Repairs",
-        "diagnostics": "Full Vehicle Diagnostics",
-        "tire": "Tire Service & Fitting",
-        "other": "Other",
         "name": "Your Full Name",
         "phone": "Your Phone",
         "email": "Your Email",

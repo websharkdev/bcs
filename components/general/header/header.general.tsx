@@ -9,6 +9,7 @@ import { WhatsAppIcon } from "./icons"
 import { useTranslations } from "next-intl"
 import { useMediaQuery } from "usehooks-ts"
 import { GHeaderBurger } from "./header.mobile"
+import { useModalsStore } from "@/storage/modals.store"
 
 const GHeader = () => {
     const t = useTranslations("buttons")
@@ -33,7 +34,7 @@ const GHeader = () => {
                 <WhatsAppIcon className="size-6" />
                 <span className="button font-medium">{t("call_us")}</span>
             </Button>
-            <Button className="button font-medium">
+            <Button className="button font-medium" onClick={() => useModalsStore.getState().setOpen(true)}>
                 {t("book_an_appointment")}
             </Button>
         </div> : <div className="flex h-10 w-[400px]" />)}

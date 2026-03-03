@@ -38,7 +38,14 @@ const MAboutUs = () => {
                         slides={galery.map((galeryItem) => (
                             <div key={`main-about_us-galery--${galeryItem}/carousel`} className="pb-5">
                                 <Lens>
-                                    <Image src={galeryItem} className="pointer-events-none w-full h-auto rounded-xl" alt={`main-about_us-galery--${galeryItem}/image`} width={305} height={400} />
+                                    <Image 
+                                        src={galeryItem} 
+                                        className="pointer-events-none w-full h-auto rounded-xl" 
+                                        alt={`main-about_us-galery--${galeryItem}/image`} 
+                                        width={305} 
+                                        height={400} 
+                                        sizes="(max-width: 768px) 100vw, 305px"
+                                    />
                                 </Lens>
                             </div>
                         ))}
@@ -47,7 +54,14 @@ const MAboutUs = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 w-full max-w-7xl mx-auto px-4">
                         {galery.map((galeryItem) =>
                             <Lens key={`main-about_us-galery--${galeryItem}/image`}>
-                                <Image src={galeryItem} className="pointer-events-none w-full h-auto rounded-xl" alt={`main-about_us-galery--${galeryItem}/image`} width={305} height={400} />
+                                <Image 
+                                    src={galeryItem} 
+                                    className="pointer-events-none w-full h-auto rounded-xl" 
+                                    alt={`main-about_us-galery--${galeryItem}/image`} 
+                                    width={305} 
+                                    height={400} 
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 305px"
+                                />
                             </Lens>
                         )}
                     </div>

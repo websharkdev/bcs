@@ -14,8 +14,11 @@ import Link from "next/link"
 import GHeaderLanguage from "./header.language"
 import { WhatsAppIcon } from "./icons"
 import { usePathname } from "next/navigation"
+import { useState } from "react"
+import { useModalsStore } from "@/storage/modals.store"
 
 export const GHeaderBurger = () => {
+    const [open, setOpen] = useState<boolean>(false)
     const t = useTranslations("menu")
     const tbuttons = useTranslations("buttons")
     const pathname = usePathname()
@@ -30,9 +33,9 @@ export const GHeaderBurger = () => {
     ]
 
     return (
-        <Dialog>
+        <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
-                <Button variant="secondary" size="icon" className="bg-[#F5F5F5] size-12 flex items-center justify-center border-2 border-[#EBEBEB] rounded-[12px]">
+                <Button variant="secondary" onClick={() => setOpen(true)} size="icon" className="bg-[#F5F5F5] size-12 flex items-center justify-center border-2 border-[#EBEBEB] rounded-[12px]">
                     <Menu />
                 </Button>
             </DialogTrigger>
@@ -47,9 +50,12 @@ export const GHeaderBurger = () => {
                     {menuData.map((item) => {
                         const isActive = pathname === item.href || (item.href === "/" && pathname === "")
                         return (
-                            <Link 
+                            <Link
                                 key={item.title} 
                                 href={item.href} 
+                                onClick={() => {
+                                    setOpen(false)
+                                }}
                                 className={`text-[1.5rem] leading-none transition-colors ${isActive ? 'font-bold text-[#171717]' : 'font-medium text-[#A9A9A9] hover:text-[#171717]'}`}
                             >
                                 {item.title}
@@ -64,7 +70,13 @@ export const GHeaderBurger = () => {
                         <GHeaderLanguage />
                     </div>
                     
-                    <Button className="w-full h-14 text-base font-semibold">
+                    <Button 
+                        className="w-full h-14 text-base font-semibold"
+                        onClick={() => {
+                            setOpen(false);
+                            useModalsStore.getState().setOpen(true);
+                        }}
+                    >
                         {tbuttons("book_an_appointment")}
                     </Button>
                     

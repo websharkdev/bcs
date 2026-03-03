@@ -8,6 +8,9 @@ export enum ServiceType {
     REPAIRS = 'repairs',
     DIAGNOSTICS = 'diagnostics',
     TIRE = 'tire',
+    BRAKES = 'brakes',
+    VEHICLE = 'vehicle',
+    ELECTRICAL_REPAIRS = 'electrical_repairs',
     OTHER = 'other'
 }
 
@@ -19,6 +22,9 @@ export const FSchema = z.object({
         ServiceType.REPAIRS,
         ServiceType.DIAGNOSTICS,
         ServiceType.TIRE,
+        ServiceType.BRAKES,
+        ServiceType.VEHICLE,
+        ServiceType.ELECTRICAL_REPAIRS,
         ServiceType.OTHER]),
     full_name: z.string().min(3).max(100),
     email: z.string().email().min(5).max(100),

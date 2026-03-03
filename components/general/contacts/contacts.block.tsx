@@ -22,10 +22,11 @@ import { Controller, useForm } from "react-hook-form"
 import { toast } from "sonner"
 import { submitForm } from "./contacts.action"
 import { ContactFormValues, FSchema, ServiceType } from "./schema"
+import { cn } from "@/lib/utils"
 
 
-const Form = () => {
-    const tform = useTranslations('contact_us.form')
+export const ContactForm = ({ defaultService, className }: { defaultService?: ServiceType, className?: string }) => {
+    const tform = useTranslations('services_form')
     const tbuttons = useTranslations('buttons')
 
     const services: {
@@ -33,10 +34,10 @@ const Form = () => {
         value: ServiceType
     }[] = [
             { title: tform('maintenance'), value: ServiceType.MAINTENANCE },
-            { title: tform('replacement'), value: ServiceType.REPLACEMENT },
+            { title: tform('brakes'), value: ServiceType.BRAKES },
             { title: tform('dpf'), value: ServiceType.DPF },
-            { title: tform('repairs'), value: ServiceType.REPAIRS },
-            { title: tform('diagnostics'), value: ServiceType.DIAGNOSTICS },
+            { title: tform('electrical_repairs'), value: ServiceType.ELECTRICAL_REPAIRS },
+            { title: tform('vehicle'), value: ServiceType.VEHICLE },
             { title: tform('tire'), value: ServiceType.TIRE },
             { title: tform('other'), value: ServiceType.OTHER }
         ]
@@ -44,7 +45,7 @@ const Form = () => {
     const { handleSubmit, control, reset } = useForm<ContactFormValues>({
         resolver: zodResolver(FSchema),
         defaultValues: {
-            service: ServiceType.MAINTENANCE,
+            service: defaultService || ServiceType.MAINTENANCE,
             full_name: '',
             email: '',
             phone: '',
@@ -52,17 +53,16 @@ const Form = () => {
         },
     })
 
+
     const onSubmit = async (data: ContactFormValues) => {
         const parsed = FSchema.safeParse(data);
         
-        console.log(parsed)
         if (!parsed.success) {
             return { success: false, error: parsed.error.flatten() };
         }
 
         const result = await submitForm(parsed.data);
 
-        console.log('result', result)
         if (result.success) {
             reset();
             toast('Thank you for your message! We will get back to you as soon as possible.')
@@ -73,7 +73,7 @@ const Form = () => {
 
 
     return (
-        <ScrollArea variant="ghost" className="h-[500px]">
+        <ScrollArea variant="ghost" className={className}>
             <form id="form-main-contact-us" onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
                     <FieldGroup>
                         <Controller
@@ -201,13 +201,13 @@ const Form = () => {
     )
 }
 
-const GContactUs = () => {
+const GContactUs = ({type, className, formClassName = 'h-[500px]'}: {type: ServiceType, className?: string, formClassName?: string}) => {
     const { ref } = useSectionScroll('contact-us')
     const tcontact = useTranslations('contact_us')
     const tbuttons = useTranslations('buttons')
 
     return (
-        <div className="min-h-screen flex justify-center items-center my-20" ref={ref} id="contact-us">
+        <div className={cn("min-h-screen flex justify-center items-center my-20", className)} ref={ref} id="contact-us">
             <div className="relative max-w-full md:max-w-7xl w-full h-full rounded-[24px] overflow-hidden">
                 <div className="relative z-10 flex flex-nowrap flex-col md:flex-row items-center justify-between w-full h-full pl-5 md:pl-16 pr-5 pb-5 md:pb-0">
                     <div className="flex flex-col justify-between text-white! max-w-[480px] md:min-h-[700px] my-10 md:my-12 gap-10">
@@ -227,7 +227,7 @@ const GContactUs = () => {
                     <div className="bg-white w-full max-w-lg rounded-[24px] py-10 px-5 flex flex-col gap-8">
                         <h4>{tcontact('form.title')}</h4>
                         {/*  */}
-                        <Form />
+                        <ContactForm defaultService={type} className={formClassName} />
                     </div>
                 </div>
                 <div className="w-full h-full object-fill absolute left-0 top-0 z-5 bg-black/40 backdrop-blur-xl"/>
