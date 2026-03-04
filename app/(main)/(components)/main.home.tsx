@@ -72,7 +72,7 @@ const MHome = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={sectionRef} id="home">
-        <div className="flex items-center justify-center relative min-h-[600px] lg:min-h-[800px] py-10 lg:py-0 my-10 overflow-hidden rounded-[24px]" ref={containerRef}>
+        <div className="flex items-center justify-center relative min-h-[600px] max-h-[800px] py-10 lg:py-0 my-10 overflow-hidden rounded-[24px]" ref={containerRef}>
             <div className="hero-overlay w-full h-full object-fill absolute left-0 top-0 z-5 bg-black/40 backdrop-blur-sm rounded-[24px] opacity-0"/>
             <Image 
                 src="/backgrounds/home.jpg" 
