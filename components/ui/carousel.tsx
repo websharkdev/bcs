@@ -4,7 +4,7 @@ import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/pagination';
 
-import { Pagination, EffectFade, Autoplay } from 'swiper/modules';
+import { Pagination, Autoplay } from 'swiper/modules';
 
 interface Props extends SwiperProps {
     slides: React.ReactNode[]

@@ -1,9 +1,8 @@
 "use server";
 
-import { z } from "zod";
-import { FSchema } from "./schema";
+import { ContactFormValues } from "./schema";
 
-export async function submitForm(data: z.infer<typeof FSchema>) {
+export async function submitForm(data: ContactFormValues) {
   const { service, full_name, email, phone, vin_code } = data;
 
   try {

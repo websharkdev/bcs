@@ -56,7 +56,7 @@ const GFooter = () => {
 
                     <div className="flex items-center gap-1.5">
                         {socialItems.map((item, index) => (
-                            <Button key={index} size='icon-xl'>
+                            <Button key={index} size='icon-xl' href={item.href}>
                                 {item.icon}
                             </Button>
                         ))}

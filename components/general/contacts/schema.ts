@@ -14,7 +14,25 @@ export enum ServiceType {
     OTHER = 'other'
 }
 
-export const getFSchema = (t: any) => z.object({
+export const Schema = z.object({
+    service: z.enum([
+        ServiceType.MAINTENANCE,
+        ServiceType.REPLACEMENT,
+        ServiceType.DPF,
+        ServiceType.REPAIRS,
+        ServiceType.DIAGNOSTICS,
+        ServiceType.TIRE,
+        ServiceType.BRAKES,
+        ServiceType.VEHICLE,
+        ServiceType.ELECTRICAL_REPAIRS,
+        ServiceType.OTHER]),
+    full_name: z.string().min(3).max(100),
+    email: z.string().email().min(5).max(100),
+    phone: z.string().min(10).max(15),
+    vin_code: z.string().min(17).max(17)
+});
+
+export const getFSchema = (t: (key: string) => string) => z.object({
     service: z.enum([
         ServiceType.MAINTENANCE,
         ServiceType.REPLACEMENT,
@@ -32,4 +50,4 @@ export const getFSchema = (t: any) => z.object({
     vin_code: z.string().min(17, { message: t('min_vin_code') }).max(17, { message: t('max_vin_code') })
 });
 
-export type ContactFormValues = z.infer<ReturnType<typeof getFSchema>>;
+export type ContactFormValues = z.infer<typeof Schema>;

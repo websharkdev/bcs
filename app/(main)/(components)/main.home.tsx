@@ -103,7 +103,7 @@ const MHome = () => {
                 <p className="hero-content-item text-center max-w-[560px] opacity-0 translate-y-8">{thome('subtitle')}</p>
 
                 <div className="hero-content-item flex flex-col lg:flex-row items-center gap-2.5 lg:gap-4 px-8 w-full lg:w-auto opacity-0 translate-y-8">
-                    <Button variant='default' className="w-full lg:w-auto bg-[#2791FF] border-2 border-[#2791FF]" disabled={status !== 'success'} href={status === 'success' ? contacts?.googleMapsLink : '#'}>{tbuttons('plan_a_route')}</Button>
+                    <Button variant='default' className="w-full lg:w-auto bg-[#2791FF] border-2 border-[#2791FF]" href={status === 'success' ? contacts?.googleMapsLink : '#'}>{tbuttons('plan_a_route')}</Button>
                     <Button variant='whatsup_o' className="w-full lg:w-auto" href={whatsappLink}>
                         <WhatsAppIcon className="size-6" />
                         {tbuttons('call_on_whatsapp')}

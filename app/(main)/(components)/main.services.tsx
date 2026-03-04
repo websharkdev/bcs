@@ -105,9 +105,9 @@ const MServices = () => {
         title: s.title,
         description: s.description,
         image: `/services/${s.slug}.png`,
-        serviceType: s.slug.toUpperCase() as ServiceType
+        serviceType: s.slug as ServiceType
     })) : []
-        
+
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={sectionRef} id="services">
