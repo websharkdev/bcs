@@ -22,7 +22,7 @@ const B2BCard = ({title, description, index}: {title: string, description: strin
             <span className="numbers">0{index + 1}</span>
         </div>
         <div className="flex flex-col gap-2 lg:gap-5 lg:text-center">
-            <h4 className="text-2xl font-semibold max-w-64 lg:mx-auto">{title}</h4>
+            <h4 className="text-2xl font-semibold lg:max-w-64 lg:mx-auto">{title}</h4>
             <p className="button font-medium text-[#A9A9A9] max-w-xs">{description}</p>
         </div>
         </div>
@@ -84,10 +84,10 @@ const MB2B = () => {
             {isMobile ? (
                 <Carousel 
                     className="w-full"
-                    slidesPerView={1.2}
-                    spaceBetween={10}
+                    slidesPerView={1.1}
+                    spaceBetween={16}
                     slides={cards.map((card, index) => (
-                        <div key={card} className="">
+                        <div key={card} className="pb-2">
                             <B2BCard title={tb2b_cards(`${card}.title`)} description={tb2b_cards(`${card}.description`)} index={index} />
                         </div>
                     ))}
@@ -95,6 +95,7 @@ const MB2B = () => {
                     autoplay={false}
                     loop={false}
                 />
+
             ) : (
               <div className="b2b-grid flex flex-row flex-wrap lg:flex-nowrap justify-center lg:justify-between items-center min-h-80 gap-5 max-w-7xl mx-auto px-4 sm:px-0">
                 {cards.map((card, index) => (
