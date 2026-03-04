@@ -15,6 +15,7 @@ import GHeaderLanguage from "./header.language"
 import { WhatsAppIcon } from "./icons"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
+import { useSectionsStore } from "@/storage/sections.store"
 import { useModalsStore } from "@/storage/modals.store"
 import { useWhatsAppLink } from "@/hooks/useWhatsAppLink"
 
@@ -23,10 +24,11 @@ export const GHeaderBurger = () => {
     const t = useTranslations("menu")
     const tbuttons = useTranslations("buttons")
     const pathname = usePathname()
+    const {section} = useSectionsStore()
     const whatsappLink = useWhatsAppLink()
 
     const menuData = [
-        { title: t("home"), href: "/" },
+        { title: t("home"), href: "/#home" },
         { title: t("services"), href: "/#services" },
         { title: t("reviews"), href: "/#reviews" },
         { title: t("b2b"), href: "/#b2b" },
@@ -50,7 +52,9 @@ export const GHeaderBurger = () => {
 
                 <nav className="flex-1 flex flex-col justify-center items-center gap-6 lg:gap-8 overflow-y-auto py-10">
                     {menuData.map((item) => {
-                        const isActive = pathname === item.href || (item.href === "/" && pathname === "")
+                        const isActive = (pathname === '/' || pathname === '') 
+                            ? section === item.href.replace('/#', '')
+                            : pathname === item.href
                         return (
                             <Link
                                 key={item.title} 

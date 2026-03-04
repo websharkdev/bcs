@@ -6,11 +6,11 @@ import { useTranslations } from "next-intl"
 
 const BPolicy = ({namespace, sections}: {namespace: string, sections: string[]}) => {
     const t = useTranslations(namespace)
-
+    
     return (
-        <section className="max-w-5xl mx-auto px-6 py-16 lg:py-24 flex flex-col gap-16 text-[#171717]">
+        <section className="max-w-full lg:max-w-5xl mx-auto px-6 py-16 lg:py-24 flex flex-col gap-16 text-[#171717]">
             <div className="text-center flex flex-col gap-5">
-                <h2>{t('title')}</h2>
+                <h3>{t('title')}</h3>
                 <p className="button font-medium text-[#171717] max-w-xl mx-auto">
                     {t('description')}
                 </p>

@@ -1,13 +1,13 @@
 'use client'
 
+import { Button } from "@/components/ui/button";
 import { useModalsStore } from "@/storage/modals.store";
 import { useTranslations } from "next-intl";
 import { GContacts } from "../contacts";
 import { ServiceType } from "../contacts/schema";
 import { GLogo, GTextLogo } from "../logo";
-import { FooterItem, FooterSection } from "./footer.section";
-import { Button } from "@/components/ui/button";
 import { FacebookIcon, InstagramIcon, TiktokIcon } from "./(icons)";
+import { FooterItem, FooterSection } from "./footer.section";
 
 
 const GFooter = () => {
@@ -18,12 +18,12 @@ const GFooter = () => {
     const { setOpen, setType } = useModalsStore();
 
     const navigationItems: FooterItem[] = [
-        { title: tmenu("home"), type: "link", href: "#home" },
-        { title: tmenu("services"), type: "link", href: "#services" },
-        { title: tmenu("reviews"), type: "link", href: "#reviews" },
-        { title: tmenu("b2b"), type: "link", href: "#b2b" },
-        { title: tmenu("about_us"), type: "link", href: "#about-us" },
-        { title: tmenu("contact_us"), type: "link", href: "#contact-us" },
+        { title: tmenu("home"), type: "link", href: "/#home" },
+        { title: tmenu("services"), type: "link", href: "/#services" },
+        { title: tmenu("reviews"), type: "link", href: "/#reviews" },
+        { title: tmenu("b2b"), type: "link", href: "/#b2b" },
+        { title: tmenu("about_us"), type: "link", href: "/#about-us" },
+        { title: tmenu("contact_us"), type: "link", href: "/#contact-us" },
     ];
 
     const serviceItems: FooterItem[] = [

@@ -16,27 +16,27 @@ const GHeaderMenu = () => {
     const menuData = [
         {
             title: t("home"),
-            href: "#home"
+            href: "/#home"
         },
         {
             title: t("services"),
-            href: "#services"
+            href: "/#services"
         },
         {
             title: t("reviews"),
-            href: "#reviews"
+            href: "/#reviews"
         },
         {
             title: t("b2b"),
-            href: "#b2b"
+            href: "/#b2b"
         },
         {
             title: t("about_us"),
-            href: "#about-us"
+            href: "/#about-us"
         },
         {
             title: t("contact_us"),
-            href: "#contact-us"
+            href: "/#contact-us"
         }
     ]
 
@@ -44,7 +44,7 @@ const GHeaderMenu = () => {
       <NavigationMenu>
         {menuData.map((item) => (
                 <NavigationMenuItem key={item.title} className="list-none">
-                    <NavigationMenuLink asChild className={`text-sm xl:button font-medium`} active={section === item.href.replace('#', '')}>
+                    <NavigationMenuLink asChild className={`text-sm xl:button font-medium`} active={section === item.href.replace('/#', '')}>
                         <Link href={item.href}>{item.title}</Link>
                     </NavigationMenuLink>
                 </NavigationMenuItem>
