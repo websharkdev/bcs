@@ -11,7 +11,7 @@ export interface FooterItem {
 
 
 export const FooterSection = ({ title, items, children }: { title: string; items: FooterItem[]; children?: React.ReactNode }) => (
-    <div className="flex flex-col gap-y-5 min-w-32 max-w-42 md:min-w-40 md:max-w-72">
+    <div className="flex flex-col gap-y-5 min-w-32 max-w-max md:min-w-40 md:max-w-72">
         <span className="title text-white">{title}</span>
         {children ? children : <ul className="flex flex-col gap-y-2">
             {items.map((item, index) => (
