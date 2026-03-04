@@ -5,6 +5,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { getDb } from './index';
 import * as schema from './schema';
+import { sql } from 'drizzle-orm';
 
 async function seed() {
   const db = getDb();
@@ -66,11 +67,11 @@ async function seed() {
     if (content.reviews?.slides) {
       const reviewSlides = content.reviews.slides as Record<string, ReviewContent>;
       const reviewImages: Record<string, string> = {
-        mason: '/reviews/review-1.png',
-        viktor: '/reviews/review-2.png',
-        marphisa: '/reviews/review-3.png',
-        arnou: '/reviews/review-4.png',
-        anton: '/reviews/review-5.png',
+        mason: '/reviews/review-1.jpg',
+        viktor: '/reviews/review-2.jpg',
+        marphisa: '/reviews/review-3.jpg',
+        arnou: '/reviews/review-4.jpg',
+        anton: '/reviews/review-5.jpeg',
       };
       for (const [slug, data] of Object.entries(reviewSlides)) {
         const { title, name, car } = data;
@@ -81,7 +82,10 @@ async function seed() {
           name,
           car,
           image: reviewImages[slug] || null,
-        }).onConflictDoNothing();
+        }).onConflictDoUpdate({
+          target: [schema.reviews.locale, schema.reviews.slug],
+          set: { image: sql`excluded.image` }
+        });
       }
     }
 

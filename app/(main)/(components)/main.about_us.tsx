@@ -6,7 +6,7 @@ import gsap from "gsap"
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import { useTranslations } from "next-intl"
 import Image from "next/image"
-import { useLayoutEffect, useRef } from "react"
+import { useLayoutEffect, useRef, useState, useEffect } from "react"
 import { useMediaQuery } from "usehooks-ts"
 
 if (typeof window !== "undefined") {
@@ -18,6 +18,11 @@ const MAboutUs = () => {
     const containerRef = useRef<HTMLDivElement>(null)
     const tabout = useTranslations('about_us')
     const isMobile = useMediaQuery('(max-width: 1024px)')
+    const [mounted, setMounted] = useState(false)
+
+    useEffect(() => {
+        setMounted(true)
+    }, [])
 
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {
@@ -61,7 +66,7 @@ const MAboutUs = () => {
 
 
                 <div className="about-gallery w-full">
-                    {isMobile ? (
+                    {mounted && isMobile ? (
                         <Carousel 
                             slidesPerView={1.2}
                             spaceBetween={10}

@@ -22,13 +22,14 @@ import Image from "next/image"
 import { Controller, useForm } from "react-hook-form"
 import { toast } from "sonner"
 import { submitForm } from "./contacts.action"
-import { ContactFormValues, FSchema, ServiceType } from "./schema"
+import { ContactFormValues, getFSchema, ServiceType } from "./schema"
 import { cn } from "@/lib/utils"
 
 
 export const ContactForm = ({ defaultService, className }: { defaultService?: ServiceType, className?: string }) => {
     const tform = useTranslations('services_form')
     const tbuttons = useTranslations('buttons')
+    const tcontact = useTranslations('contact_us')
 
     const services: {
         title: string,
@@ -43,6 +44,9 @@ export const ContactForm = ({ defaultService, className }: { defaultService?: Se
             { title: tform('other'), value: ServiceType.OTHER }
         ]
 
+    const tform_validation = useTranslations('contact_us.form')
+    const FSchema = getFSchema(tform_validation)
+
     const { handleSubmit, control, reset } = useForm<ContactFormValues>({
         resolver: zodResolver(FSchema),
         defaultValues: {
@@ -56,19 +60,13 @@ export const ContactForm = ({ defaultService, className }: { defaultService?: Se
 
 
     const onSubmit = async (data: ContactFormValues) => {
-        const parsed = FSchema.safeParse(data);
-        
-        if (!parsed.success) {
-            return { success: false, error: parsed.error.flatten() };
-        }
-
-        const result = await submitForm(parsed.data);
+        const result = await submitForm(data);
 
         if (result.success) {
             reset();
-            toast('Thank you for your message! We will get back to you as soon as possible.')
+            toast(tcontact('thank_you_message') || 'Thank you for your message! We will get back to you as soon as possible.')
         } else {
-            toast('Something went wrong. Please try again later.')
+            toast(tcontact('error_message') || 'Something went wrong. Please try again later.')
         }
     };
 
@@ -129,7 +127,7 @@ export const ContactForm = ({ defaultService, className }: { defaultService?: Se
                                         {...field}
                                         id="form-main-contact-us-input-full_name"
                                         aria-invalid={fieldState.invalid}
-                                        placeholder="Your Full Name"
+                                        placeholder={tcontact('form.name')}
                                         autoComplete="full_name"
                                     />
                                     {fieldState.invalid && (
@@ -147,7 +145,7 @@ export const ContactForm = ({ defaultService, className }: { defaultService?: Se
                                         {...field}
                                         id="form-main-contact-us-input-email"
                                         aria-invalid={fieldState.invalid}
-                                        placeholder="Your Email"
+                                        placeholder={tcontact('form.email')}
                                         autoComplete="email"
                                     />
                                     {fieldState.invalid && (
@@ -165,7 +163,7 @@ export const ContactForm = ({ defaultService, className }: { defaultService?: Se
                                         {...field}
                                         id="form-main-contact-us-input-phone_number"
                                         aria-invalid={fieldState.invalid}
-                                        placeholder="Phone number"
+                                        placeholder={tcontact('form.phone')}
                                         autoComplete="phone_number"
                                     />
                                     {fieldState.invalid && (
@@ -183,7 +181,7 @@ export const ContactForm = ({ defaultService, className }: { defaultService?: Se
                                         {...field}
                                         id="form-main-contact-us-input-vin_code"
                                         aria-invalid={fieldState.invalid}
-                                        placeholder="VIN code"
+                                        placeholder={tcontact('form.vin_code')}
                                         autoComplete="vin_code"
                                     />
                                     {fieldState.invalid && (

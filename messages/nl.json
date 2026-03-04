@@ -200,7 +200,9 @@
       "min_email": "Min. 5 tekens",
       "max_email": "Max. 100 tekens",
       "invalid_email": "Ongeldig e-mailadres"
-    }
+    },
+    "thank_you_message": "Bedankt voor uw bericht! We nemen zo snel mogelijk contact met u op.",
+    "error_message": "Er is iets misgegaan. Probeer het later opnieuw."
   },
   "privacy_policy": {
     "title": "Privacybeleid",

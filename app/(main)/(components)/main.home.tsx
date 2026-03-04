@@ -6,12 +6,14 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from "@/components/ui/button";
 import { NumberTicker } from "@/components/ui/number-ticker";
 import { useSectionScroll } from "@/hooks/useSectionScroll";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import { useModalsStore } from "@/storage/modals.store";
 import { useWhatsAppLink } from "@/hooks/useWhatsAppLink";
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
+import { useQuery } from "@tanstack/react-query";
+import { fetchContactsAction } from "@/lib/actions/content";
 
     
 const MHomeUser = () => {
@@ -52,6 +54,13 @@ const MHome = () => {
     const thome = useTranslations('home')
     const tbuttons = useTranslations('buttons')
     const whatsappLink = useWhatsAppLink()
+
+    const locale = useLocale()
+    const { data: contacts, status } = useQuery({
+        queryKey: ['contacts', locale],
+        queryFn: () => fetchContactsAction(locale),
+        staleTime: 1000 * 60 * 5,
+    })
 
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {
@@ -94,7 +103,7 @@ const MHome = () => {
                 <p className="hero-content-item text-center max-w-[560px] opacity-0 translate-y-8">{thome('subtitle')}</p>
 
                 <div className="hero-content-item flex flex-col lg:flex-row items-center gap-2.5 lg:gap-4 px-8 w-full lg:w-auto opacity-0 translate-y-8">
-                    <Button variant='default' className="w-full lg:w-auto bg-[#2791FF] border-2 border-[#2791FF]">{tbuttons('plan_a_route')}</Button>
+                    <Button variant='default' className="w-full lg:w-auto bg-[#2791FF] border-2 border-[#2791FF]" disabled={status !== 'success'} href={status === 'success' ? contacts?.googleMapsLink : '#'}>{tbuttons('plan_a_route')}</Button>
                     <Button variant='whatsup_o' className="w-full lg:w-auto" href={whatsappLink}>
                         <WhatsAppIcon className="size-6" />
                         {tbuttons('call_on_whatsapp')}

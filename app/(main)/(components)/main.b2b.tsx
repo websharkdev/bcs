@@ -8,7 +8,7 @@ import { useWhatsAppLink } from "@/hooks/useWhatsAppLink"
 import { useTranslations } from "next-intl"
 import Image from "next/image"
 import { useMediaQuery } from "usehooks-ts"
-import { useLayoutEffect, useRef } from "react"
+import { useLayoutEffect, useRef, useState, useEffect } from "react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 
@@ -35,6 +35,12 @@ const MB2B = () => {
     const tb2b_cards = useTranslations('b2b.cards')
     const buttons = useTranslations('buttons')
     const isMobile = useMediaQuery('(max-width: 1024px)')
+    const [mounted, setMounted] = useState(false)
+    
+    useEffect(() => {
+        setMounted(true)
+    }, [])
+
     const whatsappLink = useWhatsAppLink()
 
     const cards = ['rates', 'schedule', 'rapid', 'aggrements']
@@ -74,14 +80,14 @@ const MB2B = () => {
           <div className="b2b-header flex flex-col items-center justify-center gap-5 max-w-2xl text-center mx-auto">
             <h2>{tb2b('title')}</h2>
             <p className="button font-medium">{tb2b('description')}</p>
-            <Button variant='whatsup_d' className="w-auto" href={whatsappLink}>
+            <Button variant='whatsup_d' className="w-auto opacity-100!" href={whatsappLink}>
               <WhatsAppIcon className="size-6" />
               <span className="button font-medium">{buttons('call_on_whatsapp')}</span>
             </Button>
           </div>
 
           <div className="w-full">
-            {isMobile ? (
+            {mounted && isMobile ? (
                 <Carousel 
                     className="w-full"
                     slidesPerView={1.1}
