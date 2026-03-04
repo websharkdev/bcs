@@ -51,7 +51,7 @@ const MReviews = () => {
     })) : []
 
     return (
-        <div className="my-20 flex justify-center items-center h-full min-h-[500px]" ref={ref} id="reviews">
+        <div className="my-10 lg:my-20 flex justify-center items-center h-full min-h-[500px]" ref={ref} id="reviews">
             <div className="sr-only">
                 <h2>{treviews('title')}</h2>
                 <p>{treviews('subtitle')}</p>

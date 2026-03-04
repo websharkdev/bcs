@@ -18,6 +18,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import { useQuery } from "@tanstack/react-query"
 import { fetchFaqAction } from "@/lib/actions/content"
 import { FAQSkeleton } from "@/components/general/Skeletons"
+import { useMediaQuery } from "usehooks-ts"
 
 if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger);
@@ -27,7 +28,7 @@ const FAQQuestion = ({ title, answer }: { title: string, answer: string }) => {
     return (
         <AccordionItem value={removeSpacings(title)} className="h-max w-full border-2 border-[#F5F5F5] rounded-xl [&>h3]:p-4 [&[data-state=open]>h3]:px-6.5 [&[data-state=open]>h3]:py-7">
             <AccordionTrigger className="border-0 items-center p-0">
-                <span className="subheading text-left">{title}</span>
+                <span className="subheading text-left flex-1">{title}</span>
             </AccordionTrigger>
             <AccordionContent className="px-6.5 pb-7">
                 <p className="button">{answer}</p>
@@ -48,35 +49,20 @@ const MFAQ = () => {
         queryFn: () => fetchFaqAction(locale),
     })
 
+    const isMobile = useMediaQuery('(max-width: 1024px)')
+
     useLayoutEffect(() => {
         if (isLoading || !data) return;
 
         const ctx = gsap.context(() => {
             // Header animation
             gsap.from(".faq-header > *", {
-                scrollTrigger: {
-                    trigger: ".faq-header",
-                    start: "top 85%",
-                },
                 y: 30,
                 opacity: 0,
                 duration: 1,
                 stagger: 0.2,
                 ease: "power3.out"
             });
-
-            // Accordion animation
-            gsap.from(".faq-accordion", {
-                scrollTrigger: {
-                    trigger: ".faq-accordion",
-                    start: "top 80%",
-                },
-                y: 40,
-                opacity: 0,
-                duration: 1.2,
-                ease: "power3.out"
-            });
-
         }, containerRef);
         return () => ctx.revert();
     }, [isLoading, data]);
@@ -94,13 +80,13 @@ const MFAQ = () => {
 
     return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={sectionRef} id="faq">
-            <div className="my-20 flex flex-col gap-14 justify-center items-center" ref={containerRef}>
+            <div className="my-10 lg:my-20 flex flex-col gap-5 lg:gap-14 justify-center items-center" ref={containerRef}>
                 <div className="faq-header text-center mx-auto flex flex-col justify-center items-center gap-5">
                     <h2>{tabout('title')}</h2>
                     <p className="max-w-xl button font-medium text-[#171717] text-center">{tabout('description')}</p>
 
 
-                    <Button variant='whatsup_d' className="mt-5">
+                    <Button variant='whatsup_d' className="mt-5" href="https://wa.me/32490609463">
                         <WhatsAppIcon className="size-6" />
                         <span>{tbuttons('call_on_whatsapp')}</span>
                     </Button>

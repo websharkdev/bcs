@@ -43,7 +43,7 @@ const MB2B = () => {
             gsap.from(".b2b-header > *", {
                 scrollTrigger: {
                     trigger: ".b2b-header",
-                    start: "top 85%",
+                    start: "top 35%",
                 },
                 y: 30,
                 opacity: 0,
@@ -57,7 +57,7 @@ const MB2B = () => {
                 gsap.from(".b2b-grid > *", {
                     scrollTrigger: {
                         trigger: ".b2b-grid",
-                        start: "top 80%",
+                        start: "top 30%",
                     },
                     y: 40,
                     opacity: 0,
@@ -71,7 +71,7 @@ const MB2B = () => {
             gsap.from(".b2b-image", {
                 scrollTrigger: {
                     trigger: ".b2b-image",
-                    start: "top 90%",
+                    start: "top 40%",
                 },
                 scale: 0.95,
                 opacity: 0,
@@ -85,11 +85,11 @@ const MB2B = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={sectionRef} id="b2b">
-        <div className="min-h-0 lg:min-h-screen flex flex-col items-center justify-center gap-14 my-20" ref={containerRef}>
+        <div className="min-h-0 lg:min-h-screen flex flex-col items-center justify-center gap-14 my-10 lg:my-20" ref={containerRef}>
           <div className="b2b-header flex flex-col items-center justify-center gap-5 max-w-2xl text-center mx-auto">
             <h2>{tb2b('title')}</h2>
             <p className="button font-medium">{tb2b('description')}</p>
-            <Button variant='whatsup_d' className="w-auto">
+            <Button variant='whatsup_d' className="w-auto" href="https://wa.me/32490609463">
               <WhatsAppIcon className="size-6" />
               <span className="button font-medium">{buttons('call_on_whatsapp')}</span>
             </Button>

@@ -80,7 +80,7 @@ export const GHeaderBurger = () => {
                         {tbuttons("book_an_appointment")}
                     </Button>
                     
-                    <Button variant="whatsup_d" className="w-full h-14 text-base font-semibold">
+                    <Button variant="whatsup_d" className="w-full h-14 text-base font-semibold" href="https://wa.me/32490609463">
                         <WhatsAppIcon className="size-6" />
                         {tbuttons("call_us")}
                     </Button>

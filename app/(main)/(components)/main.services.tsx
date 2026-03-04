@@ -79,7 +79,7 @@ const MServices = () => {
             gsap.from(".services-header > *", {
                 scrollTrigger: {
                     trigger: ".services-header",
-                    start: "top 85%",
+                    start: "top 35%",
                 },
                 y: 30,
                 opacity: 0,
@@ -92,7 +92,7 @@ const MServices = () => {
             gsap.from(".service-card", {
                 scrollTrigger: {
                     trigger: ".services-grid",
-                    start: "top 80%",
+                    start: "top 30%",
                 },
                 y: 50,
                 opacity: 0,
@@ -116,7 +116,7 @@ const MServices = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={sectionRef} id="services">
-        <div className="flex flex-col gap-14 my-20" ref={containerRef}>
+        <div className="flex flex-col gap-14 my-10 lg:my-20" ref={containerRef}>
             <div className="services-header flex flex-col gap-5 max-w-xl text-center mx-auto">
                 <h2>{tservices('title')}</h2>
                 <p>{tservices('subtitle')}</p>

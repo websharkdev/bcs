@@ -32,7 +32,7 @@ const GHeader = () => {
         </div>
         {(mounted && isMobile) ? null : (mounted ? <div className="flex items-center gap-2.5">
             <GHeaderLanguage/>  
-            <Button variant="whatsup_d" size={isTablet ? 'icon-xl' : 'default'}>
+            <Button variant="whatsup_d" size={isTablet ? 'icon-xl' : 'default'} href="https://wa.me/32490609463">
                 <WhatsAppIcon className="size-6" />
                 <span className="hidden xl:block button font-medium">{t("call_us")}</span>
             </Button>

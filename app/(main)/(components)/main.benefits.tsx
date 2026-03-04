@@ -24,6 +24,7 @@ import { useQuery } from "@tanstack/react-query"
 import { fetchBenefitsAction } from "@/lib/actions/content"
 import { useLocale } from "next-intl"
 import { BenefitsSkeleton } from "@/components/general/Skeletons"
+import { useModalsStore } from "@/storage/modals.store"
 
 if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger);
@@ -64,7 +65,7 @@ const MBenefits = () => {
             gsap.from(".benefits-header > *", {
                 scrollTrigger: {
                     trigger: ".benefits-header",
-                    start: "top 85%",
+                    start: "top 35%",
                 },
                 y: 30,
                 opacity: 0,
@@ -77,7 +78,7 @@ const MBenefits = () => {
             gsap.from(".benefit-card", {
                 scrollTrigger: {
                     trigger: ".benefits-grid",
-                    start: "top 80%",
+                    start: "top 30%",
                 },
                 y: 50,
                 opacity: 0,
@@ -90,7 +91,7 @@ const MBenefits = () => {
             gsap.from(".benefits-button", {
                 scrollTrigger: {
                     trigger: ".benefits-button",
-                    start: "top 90%",
+                    start: "top 40%",
                 },
                 y: 20,
                 opacity: 0,
@@ -119,7 +120,7 @@ const MBenefits = () => {
         
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={sectionRef} id="benefits">
-        <div className="my-20 flex flex-col gap-14" ref={containerRef}>
+        <div className="my-10 lg:my-20 flex flex-col gap-14" ref={containerRef}>
             <div className="benefits-header flex flex-col gap-5 max-w-xl text-center mx-auto text-[#171717]">
                 <h2>{tbenefits('title')}</h2>
                 <p className="button font-medium max-w-md mx-auto">{tbenefits('subtitle')}</p>
@@ -138,7 +139,7 @@ const MBenefits = () => {
             )}
 
             <div className="benefits-button flex justify-center">
-                <Button className="mx-auto w-auto">{tbutton('book_an_appointment')}</Button>
+                <Button className="mx-auto w-auto" onClick={() => useModalsStore.getState().setOpen(true)}>{tbutton('book_an_appointment')}</Button>
             </div>
         </div>
     </div>

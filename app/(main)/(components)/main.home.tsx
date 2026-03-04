@@ -93,7 +93,7 @@ const MHome = () => {
 
                 <div className="hero-content-item flex flex-col lg:flex-row items-center gap-2.5 lg:gap-4 px-8 w-full lg:w-auto opacity-0 translate-y-8">
                     <Button variant='default' className="w-full lg:w-auto bg-[#2791FF] border-2 border-[#2791FF]">{tbuttons('plan_a_route')}</Button>
-                    <Button variant='whatsup_o' className="w-full lg:w-auto">
+                    <Button variant='whatsup_o' className="w-full lg:w-auto" href="https://wa.me/32490609463">
                         <WhatsAppIcon className="size-6" />
                         {tbuttons('call_on_whatsapp')}
                     </Button>

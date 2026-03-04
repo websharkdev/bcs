@@ -215,7 +215,7 @@ const GContactUs = ({type, className, formClassName = 'h-[500px]'}: {type: Servi
                             <h3>{tcontact('title')}</h3>
                             <p className="button font-medium">{tcontact('description')}</p>
 
-                            <Button variant='whatsup_o' className="mt-6 w-max">
+                            <Button variant='whatsup_o' className="mt-6 w-max" href="https://wa.me/32490609463">
                                 <WhatsAppIcon className="size-6" />
                                 <span className="button font-medium">{tbuttons('call_on_whatsapp')}</span>
                             </Button>
