@@ -39,7 +39,7 @@ export default function Home() {
     ]
 
   return (
-    <div className="flex flex-col gap-20 lg:px-20">
+    <div className="flex flex-col gap-10 lg:gap-20 px-10 2xl:px-20">
         {sections.map((section) => (
             <section key={section.id} id={section.id}>
                 {section.component}

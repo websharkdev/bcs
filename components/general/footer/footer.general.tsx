@@ -62,7 +62,7 @@ const GFooter = () => {
                         ))}
                     </div>
                 </div>
-                <div className="static z-1 flex flex-wrap lg:flex-nowrap gap-5 lg:gap-15 w-full lg:w-max">
+                <div className="static z-1 flex flex-wrap gap-5 lg:gap-15 w-full lg:w-max">
                     <FooterSection title={t('navigation')} items={navigationItems} />
                     <FooterSection title={tservices_form('title')} items={serviceItems} />
                     <FooterSection title={tlegal('title')} items={legalItems} />

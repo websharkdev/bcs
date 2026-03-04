@@ -1,8 +1,10 @@
 'use client'
 
 import { useSectionScroll } from "@/hooks/useSectionScroll"
-import { useTranslations, useLocale } from "next-intl"
+import { useLocale, useTranslations } from "next-intl"
 
+import { WhatsAppIcon } from "@/components/general/header/icons"
+import { FAQSkeleton } from "@/components/general/Skeletons"
 import {
     Accordion,
     AccordionContent,
@@ -10,15 +12,12 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion"
 import { Button } from "@/components/ui/button"
-import { WhatsAppIcon } from "@/components/general/header/icons"
+import { fetchFaqAction } from "@/lib/actions/content"
 import { removeSpacings } from "@/lib/string"
-import { useLayoutEffect, useRef } from "react"
+import { useQuery } from "@tanstack/react-query"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
-import { useQuery } from "@tanstack/react-query"
-import { fetchFaqAction } from "@/lib/actions/content"
-import { FAQSkeleton } from "@/components/general/Skeletons"
-import { useMediaQuery } from "usehooks-ts"
+import { useLayoutEffect, useRef } from "react"
 
 if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger);
@@ -49,8 +48,6 @@ const MFAQ = () => {
         queryFn: () => fetchFaqAction(locale),
     })
 
-    const isMobile = useMediaQuery('(max-width: 1024px)')
-
     useLayoutEffect(() => {
         if (isLoading || !data) return;
 
@@ -61,6 +58,13 @@ const MFAQ = () => {
                 opacity: 0,
                 duration: 1,
                 stagger: 0.2,
+                ease: "power3.out"
+            });
+
+            gsap.from(".faq-accordion", {
+                y: 35,
+                opacity: 0,
+                duration: 1.2,
                 ease: "power3.out"
             });
         }, containerRef);
