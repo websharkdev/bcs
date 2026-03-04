@@ -84,7 +84,7 @@ const MB2B = () => {
     }, [isMobile]);
 
   return (
-    <div className="max-w-7xl mx-auto" ref={sectionRef} id="b2b">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={sectionRef} id="b2b">
         <div className="min-h-0 lg:min-h-screen flex flex-col items-center justify-center gap-14 my-20" ref={containerRef}>
           <div className="b2b-header flex flex-col items-center justify-center gap-5 max-w-2xl text-center mx-auto">
             <h2>{tb2b('title')}</h2>
@@ -111,7 +111,7 @@ const MB2B = () => {
                     loop={false}
                 />
             ) : (
-              <div className="b2b-grid flex flex-row flex-wrap lg:flex-nowrap justify-center lg:justify-between items-center min-h-80 gap-5 max-w-7xl mx-auto px-4">
+              <div className="b2b-grid flex flex-row flex-wrap lg:flex-nowrap justify-center lg:justify-between items-center min-h-80 gap-5 max-w-7xl mx-auto px-4 sm:px-0">
                 {cards.map((card, index) => (
                     <B2BCard key={card} title={tb2b_cards(`${card}.title`)} description={tb2b_cards(`${card}.description`)} index={index} />
                 ))}

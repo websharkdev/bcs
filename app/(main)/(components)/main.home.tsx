@@ -69,7 +69,7 @@ const MHome = () => {
     }, []);
 
   return (
-    <div className="max-w-7xl mx-auto" ref={sectionRef} id="home">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={sectionRef} id="home">
         <div className="flex items-center justify-center relative min-h-[600px] lg:min-h-[800px] py-10 lg:py-0 my-10 overflow-hidden rounded-[24px]" ref={containerRef}>
             <div className="hero-overlay w-full h-full object-fill absolute left-0 top-0 z-5 bg-black/40 backdrop-blur-sm rounded-[24px] opacity-0"/>
             <Image 
@@ -78,7 +78,7 @@ const MHome = () => {
                 fill 
                 priority 
                 className="hero-bg absolute inset-0 z-0 rounded-[24px] object-cover pointer-events-none opacity-0 scale-110" 
-                sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 1280px, 1920px"
+                sizes="100vw"
             />
             <div className="hero-content flex flex-col items-center justify-center z-10 text-white max-w-3xl gap-6 px-4">
                 <div className="hero-content-item flex flex-row items-center gap-5 opacity-0 translate-y-8">

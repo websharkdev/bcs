@@ -44,7 +44,7 @@ const GHeaderMenu = () => {
       <NavigationMenu>
         {menuData.map((item) => (
                 <NavigationMenuItem key={item.title} className="list-none">
-                    <NavigationMenuLink asChild className={`button`} active={section === item.href.replace('#', '')}>
+                    <NavigationMenuLink asChild className={`text-sm xl:button font-medium`} active={section === item.href.replace('#', '')}>
                         <Link href={item.href}>{item.title}</Link>
                     </NavigationMenuLink>
                 </NavigationMenuItem>

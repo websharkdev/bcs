@@ -21,6 +21,10 @@ import { useMediaQuery } from "usehooks-ts"
 import { useLayoutEffect, useRef } from "react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
+import { useQuery } from "@tanstack/react-query"
+import { fetchBenefitsAction } from "@/lib/actions/content"
+import { useLocale } from "next-intl"
+import { BenefitsSkeleton } from "@/components/general/Skeletons"
 
 if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger);
@@ -47,8 +51,16 @@ const MBenefits = () => {
     const tbenefits = useTranslations('benefits')
     const tbenefits_cards = useTranslations('benefits.cards')
     const tbutton = useTranslations('buttons')
+    const locale = useLocale()
+
+    const { data, isLoading } = useQuery({
+        queryKey: ['benefits', locale],
+        queryFn: () => fetchBenefitsAction(locale),
+    })
 
     useLayoutEffect(() => {
+        if (isLoading || !data) return;
+
         const ctx = gsap.context(() => {
             // Header animation
             gsap.from(".benefits-header > *", {
@@ -90,56 +102,42 @@ const MBenefits = () => {
 
         }, containerRef);
         return () => ctx.revert();
-    }, []);
+    }, [isLoading, data]);
 
-    const benefitsData = [
-        {
-            title: tbenefits_cards('pricing.title'),
-            description: tbenefits_cards('pricing.description'),
-            icon: <PricingIcon />
-        },
-        {
-            title: tbenefits_cards('quality.title'),
-            description: tbenefits_cards('quality.description'),
-            icon: <QualityIcon />
-        },
-        {
-            title: tbenefits_cards('fast.title'),
-            description: tbenefits_cards('fast.description'),
-            icon: <FastIcon />
-        },
-        {
-            title: tbenefits_cards('vehicle.title'),
-            description: tbenefits_cards('vehicle.description'),
-            icon: <VehicleIcon />
-        },
-        {
-            title: tbenefits_cards('honest.title'),
-            description: tbenefits_cards('honest.description'),
-            icon: <HonestIcon />
-        },
-        {
-            title: tbenefits_cards('experience.title'),
-            description: tbenefits_cards('experience.description'),
-            icon: <ExperienceIcon />
-        },
-    ]
+    const iconMap: Record<string, React.ReactNode> = {
+        pricing: <PricingIcon />,
+        quality: <QualityIcon />,
+        fast: <FastIcon />,
+        vehicle: <VehicleIcon />,
+        honest: <HonestIcon />,
+        experience: <ExperienceIcon />
+    }
+
+    const benefitsData = data ? data.map(b => ({
+        title: b.title,
+        description: b.description,
+        icon: iconMap[b.slug] || <QualityIcon />
+    })) : []
         
   return (
-    <div className="max-w-7xl mx-auto" ref={sectionRef} id="benefits">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={sectionRef} id="benefits">
         <div className="my-20 flex flex-col gap-14" ref={containerRef}>
             <div className="benefits-header flex flex-col gap-5 max-w-xl text-center mx-auto text-[#171717]">
                 <h2>{tbenefits('title')}</h2>
                 <p className="button font-medium max-w-md mx-auto">{tbenefits('subtitle')}</p>
             </div>
 
-            <div className="benefits-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-10 w-full max-w-7xl mx-auto">
-                {benefitsData.map((benefit, index) => (
-                    <div key={index} className="benefit-card">
-                        <MBenefitsCard {...benefit} />
-                    </div>
-                ))}
-            </div>
+            {isLoading ? (
+                <BenefitsSkeleton />
+            ) : (
+                <div className="benefits-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-10 w-full max-w-7xl mx-auto">
+                    {benefitsData.map((benefit, index) => (
+                        <div key={index} className="benefit-card">
+                            <MBenefitsCard {...benefit} />
+                        </div>
+                    ))}
+                </div>
+            )}
 
             <div className="benefits-button flex justify-center">
                 <Button className="mx-auto w-auto">{tbutton('book_an_appointment')}</Button>

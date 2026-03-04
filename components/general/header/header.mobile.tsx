@@ -46,7 +46,7 @@ export const GHeaderBurger = () => {
                     <GLogo className="text-[#171717]" />
                 </div>
 
-                <nav className="flex-1 flex flex-col justify-center items-center gap-8">
+                <nav className="flex-1 flex flex-col justify-center items-center gap-6 lg:gap-8 overflow-y-auto py-10">
                     {menuData.map((item) => {
                         const isActive = pathname === item.href || (item.href === "/" && pathname === "")
                         return (
@@ -56,7 +56,7 @@ export const GHeaderBurger = () => {
                                 onClick={() => {
                                     setOpen(false)
                                 }}
-                                className={`text-[1.5rem] leading-none transition-colors ${isActive ? 'font-bold text-[#171717]' : 'font-medium text-[#A9A9A9] hover:text-[#171717]'}`}
+                                className={`text-[1.25rem] sm:text-[1.5rem] leading-none transition-colors ${isActive ? 'font-bold text-[#171717]' : 'font-medium text-[#A9A9A9] hover:text-[#171717]'}`}
                             >
                                 {item.title}
                             </Link>

@@ -59,7 +59,7 @@ const MAboutUs = () => {
     ]
 
     return (
-        <div className="max-w-7xl mx-auto" ref={sectionRef} id="about-us">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={sectionRef} id="about-us">
             <div className="my-20 flex flex-col gap-14 justify-center items-center" ref={containerRef}>
                 <div className="about-header text-center mx-auto flex flex-col justify-center items-center gap-5">
                     <h2>{tabout('title')}</h2>

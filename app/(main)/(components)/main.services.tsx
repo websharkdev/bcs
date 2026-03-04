@@ -17,6 +17,10 @@ import { ServiceType } from "@/components/general/contacts/schema"
 import { useLayoutEffect, useRef } from "react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
+import { useQuery } from "@tanstack/react-query"
+import { fetchServicesAction } from "@/lib/actions/content"
+import { useLocale } from "next-intl"
+import { ServicesSkeleton } from "@/components/general/Skeletons"
 
 if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger);
@@ -61,8 +65,16 @@ const MServices = () => {
     const containerRef = useRef<HTMLDivElement>(null)
     const tservices = useTranslations('services')
     const tservices_cards = useTranslations('services.cards')
+    const locale = useLocale();
+
+    const { data, isLoading } = useQuery({
+        queryKey: ['services', locale],
+        queryFn: () => fetchServicesAction(locale),
+    })
 
     useLayoutEffect(() => {
+        if (isLoading || !data) return;
+        
         const ctx = gsap.context(() => {
             // Header animation
             gsap.from(".services-header > *", {
@@ -92,56 +104,39 @@ const MServices = () => {
 
         }, containerRef);
         return () => ctx.revert();
-    }, []);
+    }, [isLoading, data]);
 
 
-    const servicesData = [
-        {
-            title: tservices_cards('maintenance.title'),
-            description: tservices_cards('maintenance.description'),
-            image: "/services/maintenance.png",
-            serviceType: ServiceType.MAINTENANCE
-        },
-        {
-            title: tservices_cards('brakes.title'),
-            description: tservices_cards('brakes.description'),
-            image: "/services/brakes.png",
-            serviceType: ServiceType.BRAKES
-        },
-        {
-            title: tservices_cards('dpf.title'),
-            description: tservices_cards('dpf.description'),
-            image: "/services/dpf.png",
-            serviceType: ServiceType.DPF
-        },
-        {
-            title: tservices_cards('electrical_repairs.title'),
-            description: tservices_cards('electrical_repairs.description'),
-            image: "/services/electrical_repairs.png",
-            serviceType: ServiceType.ELECTRICAL_REPAIRS
-        },
-
-    ]
+    const servicesData = data ? data.map(s => ({
+        title: s.title,
+        description: s.description,
+        image: `/services/${s.slug}.png`,
+        serviceType: s.slug.toUpperCase() as ServiceType
+    })) : []
         
 
   return (
-    <div className="max-w-7xl mx-auto" ref={sectionRef} id="services">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={sectionRef} id="services">
         <div className="flex flex-col gap-14 my-20" ref={containerRef}>
             <div className="services-header flex flex-col gap-5 max-w-xl text-center mx-auto">
                 <h2>{tservices('title')}</h2>
                 <p>{tservices('subtitle')}</p>
             </div>
 
-            <div className="services-grid grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-7xl mx-auto">
-                {servicesData.map((service) => (
-                    <div key={service.title} className="service-card">
-                        <MServicesCard {...service} />
-                    </div>
-                ))}
-            </div>
+            {isLoading ? (
+                <ServicesSkeleton />
+            ) : (
+                <div className="services-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-10 max-w-7xl mx-auto px-4 sm:px-0">
+                    {servicesData.map((service) => (
+                        <div key={service.title} className="service-card">
+                            <MServicesCard {...service} />
+                        </div>
+                    ))}
+                </div>
+            )}
 
             <div className="flex justify-center items-center">
-                <Button className="w-full lg:w-auto" onClick={() => useModalsStore.getState().setOpen(true)}>{tservices('load_more')}</Button>
+                <Button className="w-auto" onClick={() => useModalsStore.getState().setOpen(true)}>{tservices('load_more')}</Button>
             </div>
         </div>
     </div>

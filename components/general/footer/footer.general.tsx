@@ -6,6 +6,8 @@ import { GContacts } from "../contacts";
 import { ServiceType } from "../contacts/schema";
 import { GLogo, GTextLogo } from "../logo";
 import { FooterItem, FooterSection } from "./footer.section";
+import { Button } from "@/components/ui/button";
+import { FacebookIcon, InstagramIcon, TiktokIcon } from "./(icons)";
 
 
 const GFooter = () => {
@@ -38,6 +40,12 @@ const GFooter = () => {
         { title: tlegal("website_terms"), type: "link", href: "/website_terms" },
     ];
 
+    const socialItems: { title: string, href: string, icon: React.ReactNode }[] = [
+        { title: "Instagram", href: "https://www.instagram.com/belgian_car_services/", icon: <InstagramIcon /> },
+        { title: "Facebook", href: "https://www.facebook.com/people/Belgian-Car-Services/61558582521610/", icon: <FacebookIcon /> },
+        { title: "Tiktok", href: "https://www.tiktok.com/@belgiancarservices?_r=1&_t=ZS-941SVH2iOou", icon: <TiktokIcon /> },
+    ];
+
 
     return (
         <footer className="w-full bg-[#050505] flex flex-col justify-between relative h-max px-5 lg:px-20 py-10">
@@ -45,6 +53,14 @@ const GFooter = () => {
                 <div className="flex flex-col gap-y-5">
                     <GLogo className="w-full max-w-[137px] aspect-137/48 text-white" />
                     <span className="caption text-[#a9a9a9]">{t('copyright')}</span>
+
+                    <div className="flex items-center gap-1.5">
+                        {socialItems.map((item, index) => (
+                            <Button key={index} size='icon-xl'>
+                                {item.icon}
+                            </Button>
+                        ))}
+                    </div>
                 </div>
                 <div className="static z-1 flex flex-wrap lg:flex-nowrap gap-5 lg:gap-15 w-full lg:w-max">
                     <FooterSection title={t('navigation')} items={navigationItems} />

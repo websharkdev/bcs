@@ -135,7 +135,7 @@ function NavigationMenuLink({
       data-slot="navigation-menu-link"
       className={cn(
         active ? 'font-semibold! text-[#171717]' : 'font-medium! text-[#A9A9A9]',
-        "hover:bg-accent hover:text-accent-foreground focus-visible:ring-ring/50 [&_svg:not([class*='text-'])]:text-muted-foreground flex flex-col gap-1 rounded-sm px-5 py-3 text-sm transition-all outline-none focus-visible:ring-[3px] focus-visible:outline-1 [&_svg:not([class*='size-'])]:size-4",
+        "xl:hover:bg-accent xl:hover:text-accent-foreground focus-visible:ring-ring/50 [&_svg:not([class*='text-'])]:text-muted-foreground flex flex-col gap-1 rounded-sm px-3.5 xl:px-5 xl:py-3 text-sm transition-all outline-none focus-visible:ring-[3px] focus-visible:outline-1 [&_svg:not([class*='size-'])]:size-4",
         className
       )}
       {...props}

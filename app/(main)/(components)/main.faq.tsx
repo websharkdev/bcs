@@ -1,7 +1,7 @@
 'use client'
 
 import { useSectionScroll } from "@/hooks/useSectionScroll"
-import { useTranslations } from "next-intl"
+import { useTranslations, useLocale } from "next-intl"
 
 import {
     Accordion,
@@ -15,21 +15,22 @@ import { removeSpacings } from "@/lib/string"
 import { useLayoutEffect, useRef } from "react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
+import { useQuery } from "@tanstack/react-query"
+import { fetchFaqAction } from "@/lib/actions/content"
+import { FAQSkeleton } from "@/components/general/Skeletons"
 
 if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger);
 }
 
-const FAQQuestion = ({ question }: { question: string }) => {
-    const tquestion = useTranslations(`faq.questions.${question}`)
-
+const FAQQuestion = ({ title, answer }: { title: string, answer: string }) => {
     return (
-        <AccordionItem value={removeSpacings(tquestion('title'))} className="h-max w-full border-2 border-[#F5F5F5] rounded-xl [&>h3]:p-4 [&[data-state=open]>h3]:px-6.5 [&[data-state=open]>h3]:py-7">
+        <AccordionItem value={removeSpacings(title)} className="h-max w-full border-2 border-[#F5F5F5] rounded-xl [&>h3]:p-4 [&[data-state=open]>h3]:px-6.5 [&[data-state=open]>h3]:py-7">
             <AccordionTrigger className="border-0 items-center p-0">
-                <span className="subheading text-left">{tquestion('title')}</span>
+                <span className="subheading text-left">{title}</span>
             </AccordionTrigger>
             <AccordionContent className="px-6.5 pb-7">
-                <p className="button">{tquestion('description')}</p>
+                <p className="button">{answer}</p>
             </AccordionContent>
         </AccordionItem>
     )
@@ -39,9 +40,18 @@ const MFAQ = () => {
     const { ref: sectionRef } = useSectionScroll('faq')
     const containerRef = useRef<HTMLDivElement>(null)
     const tabout = useTranslations('faq')
+    const tquestions = useTranslations('faq.questions')
     const tbuttons = useTranslations('buttons')
+    const locale = useLocale();
+
+    const { data, isLoading } = useQuery({
+        queryKey: ['faq', locale],
+        queryFn: () => fetchFaqAction(locale),
+    })
 
     useLayoutEffect(() => {
+        if (isLoading || !data) return;
+
         const ctx = gsap.context(() => {
             // Header animation
             gsap.from(".faq-header > *", {
@@ -70,18 +80,21 @@ const MFAQ = () => {
 
         }, containerRef);
         return () => ctx.revert();
-    }, []);
+    }, [isLoading, data]);
 
 
-    const questions = ['appointment', 'diagnostics', 'prices', 'time', 'brands', 'companies']
+    const questionsData = data ? data.map(f => ({
+        title: f.question,
+        answer: f.answer
+    })) : []
     
     // Split questions into two columns
-    const midIndex = Math.ceil(questions.length / 2)
-    const leftColumn = questions.slice(0, midIndex)
-    const rightColumn = questions.slice(midIndex)
+    const midIndex = Math.ceil(questionsData.length / 2)
+    const leftColumn = questionsData.slice(0, midIndex)
+    const rightColumn = questionsData.slice(midIndex)
 
     return (
-        <div className="max-w-7xl mx-auto" ref={sectionRef} id="faq">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={sectionRef} id="faq">
             <div className="my-20 flex flex-col gap-14 justify-center items-center" ref={containerRef}>
                 <div className="faq-header text-center mx-auto flex flex-col justify-center items-center gap-5">
                     <h2>{tabout('title')}</h2>
@@ -95,18 +108,22 @@ const MFAQ = () => {
                 </div>
 
 
-                <Accordion type="single" collapsible className="faq-accordion grid grid-cols-1 lg:grid-cols-2 w-full gap-x-10 gap-y-0 items-start max-w-7xl">
-                    <div className="flex flex-col gap-5 items-start">
-                        {leftColumn.map((question, index) => (
-                            <FAQQuestion key={`faq-left-${index}`} question={question} />
-                        ))}
-                    </div>
-                    <div className="flex flex-col gap-5 items-start">
-                        {rightColumn.map((question, index) => (
-                            <FAQQuestion key={`faq-right-${index}`} question={question} />
-                        ))}
-                    </div>
-                </Accordion>
+                {isLoading ? (
+                    <FAQSkeleton />
+                ) : (
+                    <Accordion type="single" collapsible className="faq-accordion grid grid-cols-1 lg:grid-cols-2 w-full gap-x-10 gap-y-5 items-start max-w-7xl">
+                        <div className="flex flex-col gap-5 items-start">
+                            {leftColumn.map((q, index) => (
+                                <FAQQuestion key={`faq-left-${index}`} {...q} />
+                            ))}
+                        </div>
+                        <div className="flex flex-col gap-5 items-start">
+                            {rightColumn.map((q, index) => (
+                                <FAQQuestion key={`faq-right-${index}`} {...q} />
+                            ))}
+                        </div>
+                    </Accordion>
+                )}
             </div>
         </div>
     )
