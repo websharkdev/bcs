@@ -88,11 +88,11 @@ const MServices = () => {
                 });
             } else {
                 gsap.from(".services-header > *", {
-                    scrollTrigger: { trigger: ".services-header", start: "top 35%" },
+                    scrollTrigger: { trigger: ".services-header", start: "top 60%" },
                     y: 30, opacity: 0, duration: 1, stagger: 0.2, ease: "power3.out"
                 });
                 gsap.from(".service-card", {
-                    scrollTrigger: { trigger: ".services-grid", start: "top 30%" },
+                    scrollTrigger: { trigger: ".services-grid", start: "top 66%" },
                     y: 50, opacity: 0, duration: 1, stagger: 0.15, ease: "power3.out"
                 });
             }

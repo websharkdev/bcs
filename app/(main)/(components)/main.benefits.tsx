@@ -74,15 +74,15 @@ const MBenefits = () => {
                 });
             } else {
                 gsap.from(".benefits-header > *", {
-                    scrollTrigger: { trigger: ".benefits-header", start: "top 35%" },
+                    scrollTrigger: { trigger: ".benefits-header", start: "top 70%" },
                     y: 30, opacity: 0, duration: 1, stagger: 0.2, ease: "power3.out"
                 });
                 gsap.from(".benefit-card", {
-                    scrollTrigger: { trigger: ".benefits-grid", start: "top 30%" },
+                    scrollTrigger: { trigger: ".benefits-grid", start: "top 75%" },
                     y: 50, opacity: 0, duration: 1, stagger: 0.1, ease: "power3.out"
                 });
                 gsap.from(".benefits-button", {
-                    scrollTrigger: { trigger: ".benefits-button", start: "top 40%" },
+                    scrollTrigger: { trigger: ".benefits-button", start: "top 80%" },
                     y: 20, opacity: 0, duration: 0.8, ease: "power3.out"
                 });
             }

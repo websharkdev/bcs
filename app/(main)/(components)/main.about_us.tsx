@@ -32,11 +32,11 @@ const MAboutUs = () => {
                 });
             } else {
                 gsap.from(".about-header > *", {
-                    scrollTrigger: { trigger: ".about-header", start: "top 35%" },
+                    scrollTrigger: { trigger: ".about-header", start: "top 70%" },
                     y: 30, opacity: 0, duration: 1, stagger: 0.2, ease: "power3.out"
                 });
                 gsap.from(".about-gallery-item", {
-                    scrollTrigger: { trigger: ".about-gallery", start: "top 30%" },
+                    scrollTrigger: { trigger: ".about-gallery", start: "top 65%" },
                     y: 50, opacity: 0, duration: 1, stagger: 0.2, ease: "power3.out"
                 });
             }

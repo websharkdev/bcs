@@ -52,15 +52,15 @@ const MB2B = () => {
                 });
             } else {
                 gsap.from(".b2b-header > *", {
-                    scrollTrigger: { trigger: ".b2b-header", start: "top 35%" },
+                    scrollTrigger: { trigger: ".b2b-header", start: "top 70%" },
                     y: 30, opacity: 0, duration: 1, stagger: 0.2, ease: "power3.out"
                 });
                 gsap.from(".b2b-grid > *", {
-                    scrollTrigger: { trigger: ".b2b-grid", start: "top 30%" },
+                    scrollTrigger: { trigger: ".b2b-grid", start: "top 65%" },
                     y: 40, opacity: 0, duration: 1, stagger: 0.15, ease: "power3.out"
                 });
                 gsap.from(".b2b-image", {
-                    scrollTrigger: { trigger: ".b2b-image", start: "top 40%" },
+                    scrollTrigger: { trigger: ".b2b-image", start: "top 60%" },
                     scale: 0.95, opacity: 0, duration: 1.2, ease: "power3.out"
                 });
             }
