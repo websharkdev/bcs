@@ -8,7 +8,7 @@ const WebsiteTerms = () => {
   return (
     <div className="min-h-screen">
         <BPolicy namespace="website_terms" sections={sections} />
-        <GContactUs type={ServiceType.MAINTENANCE}/>
+        <GContactUs type={ServiceType.MAINTENANCE} minHeight="lg:min-h-[550px]"/>
     </div>
   )
 }

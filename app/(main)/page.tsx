@@ -34,12 +34,12 @@ export default function Home() {
         },
         {
             id: 'contact-us',
-            component: <GContactUs type={ServiceType.MAINTENANCE} />
+            component: <GContactUs type={ServiceType.MAINTENANCE} minHeight="lg:min-h-[550px]" />
         }
     ]
 
   return (
-    <div className="flex flex-col gap-10 lg:gap-20 px-10 2xl:px-20">
+    <div className="flex flex-col gap-10 lg:gap-20 lg:px-10 2xl:px-20">
         {sections.map((section) => (
             <section key={section.id} id={section.id}>
                 {section.component}

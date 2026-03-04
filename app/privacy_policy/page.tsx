@@ -10,7 +10,7 @@ const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen">
         <BPolicy namespace="privacy_policy" sections={sections} />
-        <GContactUs type={ServiceType.MAINTENANCE}/>
+        <GContactUs type={ServiceType.MAINTENANCE} minHeight="lg:min-h-[550px]"/>
     </div>
   )
 }

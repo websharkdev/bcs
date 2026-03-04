@@ -20,7 +20,7 @@ const ContactsModals = () => {
           Book a service or contact us via WhatsApp
         </DialogDescription>
         
-        <GContactUs type={type} className="my-0 min-h-max" formClassName="h-[200px] lg:h-max"/>
+        <GContactUs type={type} className="my-0 min-h-max" formClassName="h-[200px] lg:h-max" minHeight="lg:min-h-[600px]"/>
       </DialogContent>
     </Dialog>
   )

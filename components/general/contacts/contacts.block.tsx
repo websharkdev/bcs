@@ -201,16 +201,16 @@ export const ContactForm = ({ defaultService, className }: { defaultService?: Se
     )
 }
 
-const GContactUs = ({type, className, formClassName = 'h-[500px]'}: {type: ServiceType, className?: string, formClassName?: string}) => {
+const GContactUs = ({type, className, formClassName = 'h-[500px]', minHeight = 'lg:min-h-[700px]'}: {type: ServiceType, className?: string, formClassName?: string, minHeight?: string}) => {
     const { ref } = useSectionScroll('contact-us')
     const tcontact = useTranslations('contact_us')
     const tbuttons = useTranslations('buttons')
 
     return (
-        <div className={cn("min-h-screen flex justify-center items-center my-10 lg:my-20", className)} ref={ref} id="contact-us">
+        <div className={cn("min-h-screen flex justify-center items-center my-5 md:my-10 lg:my-20", className)} ref={ref} id="contact-us">
             <div className="relative max-w-full lg:max-w-7xl w-full h-full rounded-[24px] overflow-hidden">
                 <div className="relative z-10 flex flex-nowrap flex-col lg:flex-row items-center justify-between w-full h-full pl-5 xl:pl-16 pr-5 pb-5 lg:pb-0">
-                    <div className="flex flex-col justify-between text-white! max-w-[480px] lg:min-h-[700px] my-5 md:my-10 lg:my-12 gap-10">
+                    <div className={cn("flex flex-col justify-between text-white! max-w-[480px] my-5 md:my-10 lg:my-12 gap-10", minHeight)}>
                         <div className="flex flex-nowrap flex-col gap-4 w-full">
                             <h3>{tcontact('title')}</h3>
                             <p className="button font-medium w-full max-w-xs">{tcontact('description')}</p>
@@ -224,7 +224,7 @@ const GContactUs = ({type, className, formClassName = 'h-[500px]'}: {type: Servi
                         <GContacts itemClassName="text-white! hover:text-[#2191FF]!" className="gap-y-2.5 lg:gap-y-5!" />
                     </div>
 
-                    <div className="bg-white w-full max-w-lg rounded-[24px] py-5 lg:py-10 px-5 flex flex-col gap-3 lg:gap-8">
+                    <div className="bg-white w-full max-w-lg rounded-[24px] py-5 px-5 flex flex-col gap-3 lg:gap-8 h-max">
                         <h4>{tcontact('form.title')}</h4>
                         {/*  */}
                         <ContactForm defaultService={type} className={formClassName} />
