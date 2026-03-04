@@ -195,11 +195,12 @@
       "max_vin_code": "Max. 17 caractères",
       "min_full_name": "Min. 3 caractères",
       "max_full_name": "Max. 100 caractères",
-      "min_phone": "Min. 10 caractères",
+      "min_phone": "Min. 1 caractère",
       "max_phone": "Max. 15 caractères",
       "min_email": "Min. 5 caractères",
       "max_email": "Max. 100 caractères",
-      "invalid_email": "E-mail invalide"
+      "invalid_email": "E-mail invalide",
+      "only_digits": "Chiffres uniquement"
     }
   },
   "privacy_policy": {

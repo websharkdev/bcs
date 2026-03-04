@@ -1,36 +1,33 @@
 'use client'
 
+import { ReviewsSkeleton } from "@/components/general/Skeletons"
 import { GStars } from "@/components/general/stars"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import Carousel from "@/components/ui/carousel"
 import { useSectionScroll } from "@/hooks/useSectionScroll"
-import { useTranslations, useLocale } from "next-intl"
-import { useQuery } from "@tanstack/react-query"
 import { fetchReviewsAction } from "@/lib/actions/content"
-import { ReviewsSkeleton } from "@/components/general/Skeletons"
-
-
-const MReviewSlide = ({ title, name, car, image, stars }: { title: string, name: string, car: string, image: string, stars: number }) => {
-    return (
-        <div className="bg-[#f5f5f5] rounded-[24px] p-6 lg:p-10 min-h-[500px] lg:min-h-[600px] flex flex-col justify-center items-center gap-5 max-w-7xl mx-auto">
-            <GStars maxRating={5} rating={stars} />
-            <h3 className="max-w-3xl text-center mb-6 lg:mb-10">{title}</h3>
-
-            <div className="flex flex-col items-center justify-center">
-                <Avatar className="size-10 mb-4">
-                    <AvatarImage src={image} className="size-10 aspect-square object-fill hover:opacity-90 transition-opacity duration-300" alt={name} />
-                    <AvatarFallback className="min-w-10">
-                        {name.split(' ').map((word) => word[0]).join('')}
-                    </AvatarFallback>
-                </Avatar>
-                <span className="font-bold text-lg lg:text-xl text-[#171717] text-center">{name}</span>
-                <span className="text-sm lg:text-base font-medium text-[#a9a9a9] text-center">{car}</span>
-            </div>
-        </div>
-    )
-}
-
+import { useQuery } from "@tanstack/react-query"
+import { useLocale, useTranslations } from "next-intl"
 import { EffectFade } from "swiper/modules"
+
+
+const MReviewSlide = ({ title, name, car, image, stars }: { title: string, name: string, car: string, image: string, stars: number }) => (
+    <div className="bg-[#f5f5f5] rounded-[24px] p-6 lg:p-10 min-h-[500px] lg:min-h-[600px] flex flex-col justify-center items-center gap-5 max-w-7xl mx-auto cursor-grab">
+        <GStars maxRating={5} rating={stars} />
+        <h3 className="max-w-3xl text-center mb-6 lg:mb-10">{title}</h3>
+
+        <div className="flex flex-col items-center justify-center">
+            <Avatar className="size-10 mb-4">
+                <AvatarImage src={image} className="size-10 aspect-square object-fill hover:opacity-90 transition-opacity duration-300" alt={name} />
+                <AvatarFallback className="min-w-10">
+                    {name.split(' ').map((word) => word[0]).join('')}
+                </AvatarFallback>
+            </Avatar>
+            <span className="font-bold text-lg lg:text-xl text-[#171717] text-center">{name}</span>
+            <span className="text-sm lg:text-base font-medium text-[#a9a9a9] text-center">{car}</span>
+        </div>
+    </div>
+)
 
 const MReviews = () => {
     const { ref } = useSectionScroll('reviews')

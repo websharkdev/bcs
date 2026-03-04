@@ -195,11 +195,12 @@
       "max_vin_code": "Max. 17 tekens",
       "min_full_name": "Min. 3 tekens",
       "max_full_name": "Max. 100 tekens",
-      "min_phone": "Min. 10 tekens",
+      "min_phone": "Min. 1 teken",
       "max_phone": "Max. 15 tekens",
       "min_email": "Min. 5 tekens",
       "max_email": "Max. 100 tekens",
-      "invalid_email": "Ongeldig e-mailadres"
+      "invalid_email": "Ongeldig e-mailadres",
+      "only_digits": "Alleen cijfers"
     },
     "thank_you_message": "Bedankt voor uw bericht! We nemen zo snel mogelijk contact met u op.",
     "error_message": "Er is iets misgegaan. Probeer het later opnieuw."

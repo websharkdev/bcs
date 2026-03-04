@@ -195,11 +195,12 @@
       "max_vin_code": "Максимум 17 символів",
       "min_full_name": "Мінімум 3 символи",
       "max_full_name": "Максимум 100 символів",
-      "min_phone": "Мінімум 10 символів",
+      "min_phone": "Мінімум 1 символ",
       "max_phone": "Максимум 15 символів",
       "min_email": "Мінімум 5 символів",
       "max_email": "Максимум 100 символів",
-      "invalid_email": "Некоректний Email"
+      "invalid_email": "Некоректний Email",
+      "only_digits": "Тільки цифри"
     }
   },
   "privacy_policy": {

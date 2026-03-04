@@ -18,8 +18,17 @@ const GHeaderLanguage = () => {
     }, [setLanguage])
 
     const options = useMemo(() => {
-        return Object.values(ELanguage).map((lang) => ({
+        const order = [ELanguage.EN, ELanguage.UA, ELanguage.NL, ELanguage.FR, ELanguage.RU]
+        // const flags: Record<ELanguage, string> = {
+        //     [ELanguage.UA]: "🇺🇦",
+        //     [ELanguage.RU]: "🇷🇺",
+        //     [ELanguage.EN]: "🇬🇧",
+        //     [ELanguage.NL]: "🇳🇱",
+        //     [ELanguage.FR]: "🇫🇷",
+        // }
+        return order.map((lang) => ({
             value: lang,
+            // label: `${flags[lang]} ${lang.toUpperCase()}`
             label: lang.toUpperCase()
         }))
     }, [])

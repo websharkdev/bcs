@@ -161,6 +161,10 @@ export const ContactForm = ({ defaultService, className }: { defaultService?: Se
                                 <Field data-invalid={fieldState.invalid}>
                                     <Input
                                         {...field}
+                                        onChange={(e) => {
+                                            const val = e.target.value.replace(/\D/g, '');
+                                            field.onChange(val);
+                                        }}
                                         id="form-main-contact-us-input-phone_number"
                                         aria-invalid={fieldState.invalid}
                                         placeholder={tcontact('form.phone')}

@@ -43,14 +43,14 @@ export const GHeaderBurger = () => {
                     <Menu />
                 </Button>
             </DialogTrigger>
-            <DialogContent className="min-h-screen max-w-full! rounded-none border-none p-0 flex flex-col">
+            <DialogContent className="h-dvh w-screen max-w-full! rounded-none border-none p-0 flex flex-col overflow-hidden top-0! left-0! translate-x-0! translate-y-0!">
                 <DialogTitle className="sr-only">Menu</DialogTitle>
                 
-                <div className="flex justify-center items-center h-20 shrink-0">
+                <div className="flex justify-center items-center h-20 shrink-0 border-b border-[#F5F5F5]">
                     <GLogo className="text-[#171717]" />
                 </div>
 
-                <nav className="flex-1 flex flex-col justify-center items-center gap-6 lg:gap-8 overflow-y-auto py-10">
+                <nav className="flex-1 flex flex-col justify-start items-center gap-6 lg:gap-8 overflow-y-auto py-10 touch-pan-y shadow-inner">
                     {menuData.map((item) => {
                         const isActive = (pathname === '/' || pathname === '') 
                             ? section === item.href.replace('/#', '')
@@ -62,7 +62,7 @@ export const GHeaderBurger = () => {
                                 onClick={() => {
                                     setOpen(false)
                                 }}
-                                className={`text-[1.25rem] sm:text-[1.5rem] leading-none transition-colors ${isActive ? 'font-bold text-[#171717]' : 'font-medium text-[#A9A9A9] hover:text-[#171717]'}`}
+                                className={`text-[1.25rem] sm:text-[1.5rem] leading-none transition-colors shrink-0 ${isActive ? 'font-bold text-[#171717]' : 'font-medium text-[#A9A9A9] hover:text-[#171717]'}`}
                             >
                                 {item.title}
                             </Link>
@@ -71,7 +71,7 @@ export const GHeaderBurger = () => {
                 </nav>
 
                 {/* Footer Area */}
-                <div className="p-6 flex flex-col gap-4 mt-auto flex-1">
+                <div className="p-6 pb-[calc(1.5rem+env(safe-area-inset-bottom))] flex flex-col gap-4 shrink-0 border-t border-[#F5F5F5] bg-white">
                     <div className="w-full">
                         <GHeaderLanguage />
                     </div>
