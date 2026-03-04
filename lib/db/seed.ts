@@ -23,11 +23,22 @@ async function seed() {
     const content = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
     console.log(`📦 Processing locale: ${locale}`);
 
+    interface BaseContent {
+      title: string;
+      description: string;
+    }
+
+    interface ReviewContent {
+      title: string;
+      name: string;
+      car: string;
+    }
+
     // 1. Seed Services
     if (content.services?.cards) {
-      const serviceCards = content.services.cards;
+      const serviceCards = content.services.cards as Record<string, BaseContent>;
       for (const [slug, data] of Object.entries(serviceCards)) {
-        const { title, description } = data as any;
+        const { title, description } = data;
         await db.insert(schema.services).values({
           locale,
           slug,
@@ -39,9 +50,9 @@ async function seed() {
 
     // 2. Seed Benefits
     if (content.benefits?.cards) {
-      const benefitCards = content.benefits.cards;
+      const benefitCards = content.benefits.cards as Record<string, BaseContent>;
       for (const [slug, data] of Object.entries(benefitCards)) {
-        const { title, description } = data as any;
+        const { title, description } = data;
         await db.insert(schema.benefits).values({
           locale,
           slug,
@@ -53,7 +64,7 @@ async function seed() {
 
     // 3. Seed Reviews
     if (content.reviews?.slides) {
-      const reviewSlides = content.reviews.slides;
+      const reviewSlides = content.reviews.slides as Record<string, ReviewContent>;
       const reviewImages: Record<string, string> = {
         mason: '/reviews/review-1.png',
         viktor: '/reviews/review-2.png',
@@ -62,7 +73,7 @@ async function seed() {
         anton: '/reviews/review-5.png',
       };
       for (const [slug, data] of Object.entries(reviewSlides)) {
-        const { title, name, car } = data as any;
+        const { title, name, car } = data;
         await db.insert(schema.reviews).values({
           locale,
           slug,
@@ -76,9 +87,9 @@ async function seed() {
 
     // 4. Seed FAQ
     if (content.faq?.questions) {
-      const faqQuestions = content.faq.questions;
+      const faqQuestions = content.faq.questions as Record<string, { title: string, description: string }>;
       for (const [slug, data] of Object.entries(faqQuestions)) {
-        const { title: question, description: answer } = data as any;
+        const { title: question, description: answer } = data;
         await db.insert(schema.faq).values({
           locale,
           slug,

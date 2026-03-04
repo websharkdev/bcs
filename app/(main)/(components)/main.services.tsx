@@ -64,7 +64,6 @@ const MServices = () => {
     const { ref: sectionRef } = useSectionScroll('services')
     const containerRef = useRef<HTMLDivElement>(null)
     const tservices = useTranslations('services')
-    const tservices_cards = useTranslations('services.cards')
     const locale = useLocale();
 
     const { data, isLoading } = useQuery({

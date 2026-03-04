@@ -1,6 +1,4 @@
-interface IQualityIcon extends React.SVGProps<SVGSVGElement> {}
-
-const QualityIcon = (props: IQualityIcon) => (
+const QualityIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     width={24}
     height={24}

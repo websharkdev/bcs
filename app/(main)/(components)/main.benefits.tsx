@@ -17,7 +17,6 @@ import {
     HonestIcon,
     ExperienceIcon } from "../(icons)"
 import { Button } from "@/components/ui/button"
-import { useMediaQuery } from "usehooks-ts"
 import { useLayoutEffect, useRef } from "react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
@@ -49,7 +48,6 @@ const MBenefits = () => {
     const { ref: sectionRef } = useSectionScroll('benefits')
     const containerRef = useRef<HTMLDivElement>(null)
     const tbenefits = useTranslations('benefits')
-    const tbenefits_cards = useTranslations('benefits.cards')
     const tbutton = useTranslations('buttons')
     const locale = useLocale()
 

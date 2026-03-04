@@ -1,6 +1,4 @@
-interface IExperienceIcon extends React.SVGProps<SVGSVGElement> {}
-
-const ExperienceIcon = (props: IExperienceIcon) => (
+const ExperienceIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     width={24}
     height={24}

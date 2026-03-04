@@ -35,7 +35,6 @@ import { EffectFade } from "swiper/modules"
 const MReviews = () => {
     const { ref } = useSectionScroll('reviews')
     const treviews = useTranslations('reviews')
-    const treviews_slides = useTranslations('reviews.slides')
     const locale = useLocale();
 
     const { data, isLoading } = useQuery({

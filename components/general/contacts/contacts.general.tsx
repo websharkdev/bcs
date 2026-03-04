@@ -10,16 +10,19 @@ const GContacts = ({className, itemClassName, linkClassName}: {className?: strin
         {
             icon: <GPhoneIcon className="text-current size-6 min-w-6! aspect-square" />,
             title: phone,
+            type: 'link',
             href: `tel:${phone.replace(/\s/g, '')}`
         },
         {
             icon: <GPinIcon className="text-current size-6 min-w-6! aspect-square" />,
             title: t('address'),
+            type: 'link',
             href: t('google_maps_link')
         },
         {
             icon: <GMailIcon className="text-current size-6 min-w-6! aspect-square" />,
             title: t('email'),
+            type: 'link',
             href: `mailto:${t('email')}`
         },
     ];
@@ -28,7 +31,7 @@ const GContacts = ({className, itemClassName, linkClassName}: {className?: strin
             {contactItems.map((item, index) => (
                 <li key={index} className={`flex flex-nowrap items-center gap-5 ${itemClassName}`}>
                     {item.icon}
-                    <Link href={item.href} className={`button text-current ${linkClassName} w-full break-all`}>
+                    <Link href={item.href ?? '#'} className={`button text-current ${linkClassName} w-full break-all`}>
                         {item.title}
                     </Link>
                 </li>

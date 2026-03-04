@@ -40,7 +40,6 @@ const MFAQ = () => {
     const { ref: sectionRef } = useSectionScroll('faq')
     const containerRef = useRef<HTMLDivElement>(null)
     const tabout = useTranslations('faq')
-    const tquestions = useTranslations('faq.questions')
     const tbuttons = useTranslations('buttons')
     const locale = useLocale();
 

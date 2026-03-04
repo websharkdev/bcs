@@ -1,6 +1,4 @@
-interface IFastIcon extends React.SVGProps<SVGSVGElement> {}
-
-const FastIcon = (props: IFastIcon) => (
+const FastIcon = (props: React.SVGProps<SVGSVGElement>) => (
 <svg
     width={24}
     height={24}

@@ -1,6 +1,4 @@
-interface IPricingIcon extends React.SVGProps<SVGSVGElement> {}
-
-const PricingIcon = (props: IPricingIcon) => (
+const PricingIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     width={24}
     height={24}

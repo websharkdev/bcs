@@ -1,6 +1,6 @@
 import { getDb } from "./index";
 import { services, benefits, reviews, faq } from "./schema";
-import { eq, and } from "drizzle-orm";
+import { eq } from "drizzle-orm";
 
 export async function getServices(locale: string) {
   const db = getDb();

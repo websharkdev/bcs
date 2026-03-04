@@ -1,6 +1,4 @@
-interface IVehicleIcon extends React.SVGProps<SVGSVGElement> {}
-
-const VehicleIcon = (props: IVehicleIcon) => (
+const VehicleIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     width={24}
     height={24}

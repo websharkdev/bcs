@@ -1,6 +1,4 @@
-interface IHonestIcon extends React.SVGProps<SVGSVGElement> {}
-
-const HonestIcon = (props: IHonestIcon) => (
+const HonestIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     width={24}
     height={24}
