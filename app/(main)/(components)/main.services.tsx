@@ -21,6 +21,7 @@ import { useQuery } from "@tanstack/react-query"
 import { fetchServicesAction } from "@/lib/actions/content"
 import { useLocale } from "next-intl"
 import { ServicesSkeleton } from "@/components/general/Skeletons"
+import { useMediaQuery } from "usehooks-ts"
 
 if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger);
@@ -65,6 +66,7 @@ const MServices = () => {
     const containerRef = useRef<HTMLDivElement>(null)
     const tservices = useTranslations('services')
     const locale = useLocale();
+    const isMobile = useMediaQuery('(max-width: 1024px)')
 
     const { data, isLoading } = useQuery({
         queryKey: ['services', locale],
@@ -75,35 +77,28 @@ const MServices = () => {
         if (isLoading || !data) return;
         
         const ctx = gsap.context(() => {
-            // Header animation
-            gsap.from(".services-header > *", {
-                scrollTrigger: {
-                    trigger: ".services-header",
-                    start: "top 35%",
-                },
-                y: 30,
-                opacity: 0,
-                duration: 1,
-                stagger: 0.2,
-                ease: "power3.out"
-            });
-
-            // Cards animation
-            gsap.from(".service-card", {
-                scrollTrigger: {
-                    trigger: ".services-grid",
-                    start: "top 30%",
-                },
-                y: 50,
-                opacity: 0,
-                duration: 1,
-                stagger: 0.15,
-                ease: "power3.out"
-            });
-
+            if (isMobile) {
+                // Simple fade-in on mobile — no scroll trigger
+                gsap.from([".services-header > *", ".service-card"], {
+                    opacity: 0,
+                    y: 15,
+                    duration: 0.6,
+                    stagger: 0.08,
+                    ease: "power2.out"
+                });
+            } else {
+                gsap.from(".services-header > *", {
+                    scrollTrigger: { trigger: ".services-header", start: "top 35%" },
+                    y: 30, opacity: 0, duration: 1, stagger: 0.2, ease: "power3.out"
+                });
+                gsap.from(".service-card", {
+                    scrollTrigger: { trigger: ".services-grid", start: "top 30%" },
+                    y: 50, opacity: 0, duration: 1, stagger: 0.15, ease: "power3.out"
+                });
+            }
         }, containerRef);
         return () => ctx.revert();
-    }, [isLoading, data]);
+    }, [isLoading, data, isMobile]);
 
 
     const servicesData = data ? data.map(s => ({

@@ -16,12 +16,14 @@ import { WhatsAppIcon } from "./icons"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
 import { useModalsStore } from "@/storage/modals.store"
+import { useWhatsAppLink } from "@/hooks/useWhatsAppLink"
 
 export const GHeaderBurger = () => {
     const [open, setOpen] = useState<boolean>(false)
     const t = useTranslations("menu")
     const tbuttons = useTranslations("buttons")
     const pathname = usePathname()
+    const whatsappLink = useWhatsAppLink()
 
     const menuData = [
         { title: t("home"), href: "/" },
@@ -80,7 +82,7 @@ export const GHeaderBurger = () => {
                         {tbuttons("book_an_appointment")}
                     </Button>
                     
-                    <Button variant="whatsup_d" className="w-full h-14 text-base font-semibold" href="https://wa.me/32490609463">
+                    <Button variant="whatsup_d" className="w-full h-14 text-base font-semibold" href={whatsappLink}>
                         <WhatsAppIcon className="size-6" />
                         {tbuttons("call_us")}
                     </Button>

@@ -4,6 +4,7 @@ import { WhatsAppIcon } from "@/components/general/header/icons"
 import { Button } from "@/components/ui/button"
 import Carousel from "@/components/ui/carousel"
 import { useSectionScroll } from "@/hooks/useSectionScroll"
+import { useWhatsAppLink } from "@/hooks/useWhatsAppLink"
 import { useTranslations } from "next-intl"
 import Image from "next/image"
 import { useMediaQuery } from "usehooks-ts"
@@ -34,51 +35,35 @@ const MB2B = () => {
     const tb2b_cards = useTranslations('b2b.cards')
     const buttons = useTranslations('buttons')
     const isMobile = useMediaQuery('(max-width: 1024px)')
+    const whatsappLink = useWhatsAppLink()
 
     const cards = ['rates', 'schedule', 'rapid', 'aggrements']
 
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {
-            // Header animation
-            gsap.from(".b2b-header > *", {
-                scrollTrigger: {
-                    trigger: ".b2b-header",
-                    start: "top 35%",
-                },
-                y: 30,
-                opacity: 0,
-                duration: 1,
-                stagger: 0.2,
-                ease: "power3.out"
-            });
-
-            // Grid animation (Desktop only)
-            if (!isMobile) {
-                gsap.from(".b2b-grid > *", {
-                    scrollTrigger: {
-                        trigger: ".b2b-grid",
-                        start: "top 30%",
-                    },
-                    y: 40,
+            if (isMobile) {
+                // Simple fade-in on mobile — no scroll trigger
+                gsap.from([".b2b-header > *", ".b2b-image"], {
                     opacity: 0,
-                    duration: 1,
-                    stagger: 0.15,
-                    ease: "power3.out"
+                    y: 15,
+                    duration: 0.6,
+                    stagger: 0.1,
+                    ease: "power2.out"
+                });
+            } else {
+                gsap.from(".b2b-header > *", {
+                    scrollTrigger: { trigger: ".b2b-header", start: "top 35%" },
+                    y: 30, opacity: 0, duration: 1, stagger: 0.2, ease: "power3.out"
+                });
+                gsap.from(".b2b-grid > *", {
+                    scrollTrigger: { trigger: ".b2b-grid", start: "top 30%" },
+                    y: 40, opacity: 0, duration: 1, stagger: 0.15, ease: "power3.out"
+                });
+                gsap.from(".b2b-image", {
+                    scrollTrigger: { trigger: ".b2b-image", start: "top 40%" },
+                    scale: 0.95, opacity: 0, duration: 1.2, ease: "power3.out"
                 });
             }
-
-            // Image animation
-            gsap.from(".b2b-image", {
-                scrollTrigger: {
-                    trigger: ".b2b-image",
-                    start: "top 40%",
-                },
-                scale: 0.95,
-                opacity: 0,
-                duration: 1.2,
-                ease: "power3.out"
-            });
-
         }, containerRef);
         return () => ctx.revert();
     }, [isMobile]);
@@ -89,7 +74,7 @@ const MB2B = () => {
           <div className="b2b-header flex flex-col items-center justify-center gap-5 max-w-2xl text-center mx-auto">
             <h2>{tb2b('title')}</h2>
             <p className="button font-medium">{tb2b('description')}</p>
-            <Button variant='whatsup_d' className="w-auto" href="https://wa.me/32490609463">
+            <Button variant='whatsup_d' className="w-auto" href={whatsappLink}>
               <WhatsAppIcon className="size-6" />
               <span className="button font-medium">{buttons('call_on_whatsapp')}</span>
             </Button>

@@ -1,6 +1,6 @@
 'use server'
 
-import { getServices, getBenefits, getReviews, getFaq } from "../db/queries";
+import { getServices, getBenefits, getReviews, getFaq, getContacts } from "../db/queries";
 
 export async function fetchServicesAction(locale: string) {
     return await getServices(locale);
@@ -16,4 +16,8 @@ export async function fetchReviewsAction(locale: string) {
 
 export async function fetchFaqAction(locale: string) {
     return await getFaq(locale);
+}
+
+export async function fetchContactsAction(locale: string) {
+    return await getContacts(locale);
 }

@@ -21,35 +21,28 @@ const MAboutUs = () => {
 
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {
-            // Header animation
-            gsap.from(".about-header > *", {
-                scrollTrigger: {
-                    trigger: ".about-header",
-                    start: "top 35%",
-                },
-                y: 30,
-                opacity: 0,
-                duration: 1,
-                stagger: 0.2,
-                ease: "power3.out"
-            });
-
-            // Gallery animation
-            gsap.from(".about-gallery-item", {
-                scrollTrigger: {
-                    trigger: ".about-gallery",
-                    start: "top 30%",
-                },
-                y: 50,
-                opacity: 0,
-                duration: 1,
-                stagger: 0.2,
-                ease: "power3.out"
-            });
-
+            if (isMobile) {
+                // Simple fade-in on mobile — no scroll trigger
+                gsap.from([".about-header > *", ".about-gallery-item"], {
+                    opacity: 0,
+                    y: 15,
+                    duration: 0.6,
+                    stagger: 0.1,
+                    ease: "power2.out"
+                });
+            } else {
+                gsap.from(".about-header > *", {
+                    scrollTrigger: { trigger: ".about-header", start: "top 35%" },
+                    y: 30, opacity: 0, duration: 1, stagger: 0.2, ease: "power3.out"
+                });
+                gsap.from(".about-gallery-item", {
+                    scrollTrigger: { trigger: ".about-gallery", start: "top 30%" },
+                    y: 50, opacity: 0, duration: 1, stagger: 0.2, ease: "power3.out"
+                });
+            }
         }, containerRef);
         return () => ctx.revert();
-    }, []);
+    }, [isMobile]);
 
     const galery: string[] = [
         '/galery/Item.webp',

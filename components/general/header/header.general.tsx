@@ -10,9 +10,11 @@ import { useTranslations } from "next-intl"
 import { useMediaQuery } from "usehooks-ts"
 import { GHeaderBurger } from "./header.mobile"
 import { useModalsStore } from "@/storage/modals.store"
+import { useWhatsAppLink } from "@/hooks/useWhatsAppLink"
 
 const GHeader = () => {
     const t = useTranslations("buttons")
+    const whatsappLink = useWhatsAppLink()
 
     const [mounted, setMounted] = useState(false);
     useEffect(() => {
@@ -32,7 +34,7 @@ const GHeader = () => {
         </div>
         {(mounted && isMobile) ? null : (mounted ? <div className="flex items-center gap-2.5">
             <GHeaderLanguage/>  
-            <Button variant="whatsup_d" size={isTablet ? 'icon-xl' : 'default'} href="https://wa.me/32490609463">
+            <Button variant="whatsup_d" size={isTablet ? 'icon-xl' : 'default'} href={whatsappLink}>
                 <WhatsAppIcon className="size-6" />
                 <span className="hidden xl:block button font-medium">{t("call_us")}</span>
             </Button>

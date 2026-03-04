@@ -56,3 +56,16 @@ export const faq = pgTable("faq", {
 }, (table) => ({
     localeSlugIdx: uniqueIndex("faq_locale_slug_idx").on(table.locale, table.slug),
 }));
+
+export const contacts = pgTable("contacts", {
+  id: serial("id").primaryKey(),
+  locale: text("locale").notNull(),
+  phone: text("phone").notNull(),
+  email: text("email").notNull(),
+  address: text("address").notNull(),
+  googleMapsLink: text("google_maps_link").notNull(),
+  whatsappNumber: text("whatsapp_number").notNull(),
+}, (table) => ({
+  localeIdx: uniqueIndex("contacts_locale_idx").on(table.locale),
+}));
+

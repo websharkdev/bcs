@@ -98,7 +98,20 @@ async function seed() {
         }).onConflictDoNothing();
       }
     }
+
+    // 5. Seed Contacts
+    if (content.footer?.phone && content.footer?.email && content.footer?.address) {
+      await db.insert(schema.contacts).values({
+        locale,
+        phone: content.footer.phone,
+        email: content.footer.email,
+        address: content.footer.address,
+        googleMapsLink: content.footer.google_maps_link ?? '',
+        whatsappNumber: content.footer.phone.replace(/\s/g, ''),
+      }).onConflictDoNothing();
+    }
   }
+
 
   console.log('✅ Seeding completed successfully!');
 }

@@ -14,6 +14,7 @@ import {
 import { Button } from "@/components/ui/button"
 import { fetchFaqAction } from "@/lib/actions/content"
 import { removeSpacings } from "@/lib/string"
+import { useWhatsAppLink } from "@/hooks/useWhatsAppLink"
 import { useQuery } from "@tanstack/react-query"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
@@ -42,6 +43,7 @@ const MFAQ = () => {
     const tabout = useTranslations('faq')
     const tbuttons = useTranslations('buttons')
     const locale = useLocale();
+    const whatsappLink = useWhatsAppLink();
 
     const { data, isLoading } = useQuery({
         queryKey: ['faq', locale],
@@ -90,7 +92,7 @@ const MFAQ = () => {
                     <p className="max-w-xl button font-medium text-[#171717] text-center">{tabout('description')}</p>
 
 
-                    <Button variant='whatsup_d' className="mt-5" href="https://wa.me/32490609463">
+                    <Button variant='whatsup_d' className="mt-5" href={whatsappLink}>
                         <WhatsAppIcon className="size-6" />
                         <span>{tbuttons('call_on_whatsapp')}</span>
                     </Button>

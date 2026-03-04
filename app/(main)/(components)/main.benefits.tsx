@@ -25,6 +25,7 @@ import { fetchBenefitsAction } from "@/lib/actions/content"
 import { useLocale } from "next-intl"
 import { BenefitsSkeleton } from "@/components/general/Skeletons"
 import { useModalsStore } from "@/storage/modals.store"
+import { useMediaQuery } from "usehooks-ts"
 
 if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger);
@@ -51,6 +52,7 @@ const MBenefits = () => {
     const tbenefits = useTranslations('benefits')
     const tbutton = useTranslations('buttons')
     const locale = useLocale()
+    const isMobile = useMediaQuery('(max-width: 1024px)')
 
     const { data, isLoading } = useQuery({
         queryKey: ['benefits', locale],
@@ -61,47 +63,32 @@ const MBenefits = () => {
         if (isLoading || !data) return;
 
         const ctx = gsap.context(() => {
-            // Header animation
-            gsap.from(".benefits-header > *", {
-                scrollTrigger: {
-                    trigger: ".benefits-header",
-                    start: "top 35%",
-                },
-                y: 30,
-                opacity: 0,
-                duration: 1,
-                stagger: 0.2,
-                ease: "power3.out"
-            });
-
-            // Cards animation
-            gsap.from(".benefit-card", {
-                scrollTrigger: {
-                    trigger: ".benefits-grid",
-                    start: "top 30%",
-                },
-                y: 50,
-                opacity: 0,
-                duration: 1,
-                stagger: 0.1,
-                ease: "power3.out"
-            });
-
-            // Button animation
-            gsap.from(".benefits-button", {
-                scrollTrigger: {
-                    trigger: ".benefits-button",
-                    start: "top 40%",
-                },
-                y: 20,
-                opacity: 0,
-                duration: 0.8,
-                ease: "power3.out"
-            });
-
+            if (isMobile) {
+                // Simple fade-in on mobile — no scroll trigger
+                gsap.from([".benefits-header > *", ".benefit-card", ".benefits-button"], {
+                    opacity: 0,
+                    y: 15,
+                    duration: 0.6,
+                    stagger: 0.07,
+                    ease: "power2.out"
+                });
+            } else {
+                gsap.from(".benefits-header > *", {
+                    scrollTrigger: { trigger: ".benefits-header", start: "top 35%" },
+                    y: 30, opacity: 0, duration: 1, stagger: 0.2, ease: "power3.out"
+                });
+                gsap.from(".benefit-card", {
+                    scrollTrigger: { trigger: ".benefits-grid", start: "top 30%" },
+                    y: 50, opacity: 0, duration: 1, stagger: 0.1, ease: "power3.out"
+                });
+                gsap.from(".benefits-button", {
+                    scrollTrigger: { trigger: ".benefits-button", start: "top 40%" },
+                    y: 20, opacity: 0, duration: 0.8, ease: "power3.out"
+                });
+            }
         }, containerRef);
         return () => ctx.revert();
-    }, [isLoading, data]);
+    }, [isLoading, data, isMobile]);
 
     const iconMap: Record<string, React.ReactNode> = {
         pricing: <PricingIcon />,

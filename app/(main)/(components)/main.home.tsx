@@ -9,6 +9,7 @@ import { useSectionScroll } from "@/hooks/useSectionScroll";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useModalsStore } from "@/storage/modals.store";
+import { useWhatsAppLink } from "@/hooks/useWhatsAppLink";
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 
@@ -50,6 +51,7 @@ const MHome = () => {
     const containerRef = useRef<HTMLDivElement>(null)
     const thome = useTranslations('home')
     const tbuttons = useTranslations('buttons')
+    const whatsappLink = useWhatsAppLink()
 
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {
@@ -93,7 +95,7 @@ const MHome = () => {
 
                 <div className="hero-content-item flex flex-col lg:flex-row items-center gap-2.5 lg:gap-4 px-8 w-full lg:w-auto opacity-0 translate-y-8">
                     <Button variant='default' className="w-full lg:w-auto bg-[#2791FF] border-2 border-[#2791FF]">{tbuttons('plan_a_route')}</Button>
-                    <Button variant='whatsup_o' className="w-full lg:w-auto" href="https://wa.me/32490609463">
+                    <Button variant='whatsup_o' className="w-full lg:w-auto" href={whatsappLink}>
                         <WhatsAppIcon className="size-6" />
                         {tbuttons('call_on_whatsapp')}
                     </Button>

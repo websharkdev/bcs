@@ -15,6 +15,7 @@ import { Input } from "@/components/ui/input"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { useSectionScroll } from "@/hooks/useSectionScroll"
+import { useWhatsAppLink } from "@/hooks/useWhatsAppLink"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useTranslations } from "next-intl"
 import Image from "next/image"
@@ -205,6 +206,7 @@ const GContactUs = ({type, className, formClassName = 'h-[500px]', minHeight = '
     const { ref } = useSectionScroll('contact-us')
     const tcontact = useTranslations('contact_us')
     const tbuttons = useTranslations('buttons')
+    const whatsappLink = useWhatsAppLink()
 
     return (
         <div className={cn("min-h-screen flex justify-center items-center my-5 md:my-10 lg:my-20", className)} ref={ref} id="contact-us">
@@ -215,7 +217,7 @@ const GContactUs = ({type, className, formClassName = 'h-[500px]', minHeight = '
                             <h3>{tcontact('title')}</h3>
                             <p className="button font-medium w-full max-w-xs">{tcontact('description')}</p>
 
-                            <Button variant='whatsup_o' className="mt-2 lg:mt-6 w-max" href="https://wa.me/32490609463">
+                            <Button variant='whatsup_o' className="mt-2 lg:mt-6 w-max" href={whatsappLink}>
                                 <WhatsAppIcon className="size-6" />
                                 <span className="button font-medium">{tbuttons('call_on_whatsapp')}</span>
                             </Button>

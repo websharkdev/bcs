@@ -1,6 +1,7 @@
 import { getDb } from "./index";
-import { services, benefits, reviews, faq } from "./schema";
+import { services, benefits, reviews, faq, contacts } from "./schema";
 import { eq } from "drizzle-orm";
+
 
 export async function getServices(locale: string) {
   const db = getDb();
@@ -33,3 +34,13 @@ export async function getFaq(locale: string) {
     .where(eq(faq.locale, locale))
     .orderBy(faq.order, faq.id);
 }
+
+export async function getContacts(locale: string) {
+  const db = getDb();
+  const result = await db.select()
+    .from(contacts)
+    .where(eq(contacts.locale, locale))
+    .limit(1);
+  return result[0] ?? null;
+}
+

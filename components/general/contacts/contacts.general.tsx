@@ -1,11 +1,28 @@
+'use client'
+
 import { useTranslations } from 'next-intl';
+import { useLocale } from 'next-intl';
 import Link from 'next/link';
 import { GMailIcon, GPhoneIcon, GPinIcon } from './(icons)';
 import { FooterItem } from '../footer/footer.section';
+import { useQuery } from '@tanstack/react-query';
+import { fetchContactsAction } from '@/lib/actions/content';
 
 const GContacts = ({className, itemClassName, linkClassName}: {className?: string, itemClassName?: string, linkClassName?: string}) => {
     const t = useTranslations('footer');
-    const phone = t('phone');
+    const locale = useLocale();
+
+    const { data: contacts } = useQuery({
+        queryKey: ['contacts', locale],
+        queryFn: () => fetchContactsAction(locale),
+        staleTime: 1000 * 60 * 5,
+    });
+
+    const phone = contacts?.phone ?? t('phone');
+    const email = contacts?.email ?? t('email');
+    const address = contacts?.address ?? t('address');
+    const googleMapsLink = contacts?.googleMapsLink ?? t('google_maps_link');
+
     const contactItems: FooterItem[] = [
         {
             icon: <GPhoneIcon className="text-current size-6 min-w-6! aspect-square" />,
@@ -15,18 +32,19 @@ const GContacts = ({className, itemClassName, linkClassName}: {className?: strin
         },
         {
             icon: <GPinIcon className="text-current size-6 min-w-6! aspect-square" />,
-            title: t('address'),
+            title: address,
             type: 'link',
-            href: t('google_maps_link')
+            href: googleMapsLink
         },
         {
             icon: <GMailIcon className="text-current size-6 min-w-6! aspect-square" />,
-            title: t('email'),
+            title: email,
             type: 'link',
-            href: `mailto:${t('email')}`
+            href: `mailto:${email}`
         },
     ];
-  return (
+
+    return (
         <ul className={`flex flex-col gap-y-2 ${className}`}>
             {contactItems.map((item, index) => (
                 <li key={index} className={`flex flex-nowrap items-center gap-5 ${itemClassName}`}>
@@ -37,7 +55,7 @@ const GContacts = ({className, itemClassName, linkClassName}: {className?: strin
                 </li>
             ))}
         </ul>
-  )
+    )
 }
 
 export default GContacts
