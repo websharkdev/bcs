@@ -85,7 +85,7 @@ export const ContactForm = ({ defaultService, className }: { defaultService?: Se
                                         value={field.value}
                                         onValueChange={field.onChange}
                                         aria-invalid={fieldState.invalid}
-                                        className="grid lg:grid-cols-2 gap-4.5 p-0"
+                                        className="grid lg:grid-cols-2 gap-y-3.5 gap-x-0 p-0"
                                     >
                                         {services.map((service) => (
                                             <FieldLabel
@@ -104,7 +104,7 @@ export const ContactForm = ({ defaultService, className }: { defaultService?: Se
                                                         aria-invalid={fieldState.invalid}
                                                         className="peer p-0"
                                                     />
-                                                    <FieldTitle className="button peer-data-checked:text-[#171717] text-[#A9A9A9]">{service.title}</FieldTitle>
+                                                    <FieldTitle className="text-sm peer-data-checked:text-[#171717] text-[#A9A9A9]">{service.title}</FieldTitle>
                                                 </Field>
                                             </FieldLabel>
                                         ))}
