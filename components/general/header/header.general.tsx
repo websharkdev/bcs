@@ -26,7 +26,7 @@ const GHeader = () => {
     const isTablet = useMediaQuery("(max-width: 1280px)");
 
   return (
-    <div className="w-full flex flex-nowrap justify-between items-center px-5 lg:px-5 2xl:px-20 py-4 sticky top-0 z-50 bg-white/90 backdrop-blur-xl border-b border-[#F5F5F5]">
+    <div className="w-full flex flex-nowrap justify-between items-center px-5 lg:px-5 2xl:px-20 py-4 sticky top-0 z-50 bg-white/90 backdrop-blur-xl border-b border-[#F5F5F5] gap-2.5">
         <div className="flex items-center gap-10 w-full justify-between">
             <GLogo className="w-full max-w-[137px] aspect-137/48 text-[#171717]" />
 
