@@ -85,7 +85,7 @@ export const ContactForm = ({ defaultService, className }: { defaultService?: Se
                                         value={field.value}
                                         onValueChange={field.onChange}
                                         aria-invalid={fieldState.invalid}
-                                        className="grid lg:grid-cols-2 gap-y-3.5 gap-x-0 p-0"
+                                        className="grid lg:grid-cols-2 gap-y-3.5 gap-x-1.5 p-0"
                                     >
                                         {services.map((service) => (
                                             <FieldLabel
